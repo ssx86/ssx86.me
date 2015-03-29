@@ -1,4 +1,4 @@
-//»ñÈ¡Í¨ÓÃ¶ÔÏó
+//è·å–é€šç”¨å¯¹è±¡
 function getObj(id)
 {
 	if(document.getElementById)
@@ -14,10 +14,10 @@ function getObj(id)
 		return document.layers[id];
 	}
 }
-//Í³¼Æ
+//ç»Ÿè®¡
 function clickCount( vUrl )
 {
-	//Î¨Ò»·Ã¿Í¼ì²é
+	//å”¯ä¸€è®¿å®¢æ£€æŸ¥
 	var a2;
 	i1=document.cookie.indexOf('uUiD=');
 	if(i1!=-1)
@@ -37,7 +37,7 @@ function clickCount( vUrl )
 		a2 = Math.floor(Math.random()*100000)+''+new Date().getTime()+Math.floor(Math.random()*100000);
 		document.cookie = 'uUiD='+a2+';expires=Thu, 21 Sep 2096 10:37:29 GMT; path=/';
 	}
-	//url×éºÏ
+	//urlç»„åˆ
 	var url = 'http://union2.50bang.org/web/ajax?uId2=SPTNPQRLSX&uId='+a2+'&agt='+navigator.userAgent+'&r='+encodeURIComponent(document.referrer)+'&aN='+navigator.appName+'&lg='+navigator.systemLanguage+'&OS='+navigator.platform+'&aV='+navigator.appVersion+'&fBL='+screen.width+'*'+screen.height+'&lO='+encodeURIComponent(vUrl);
 	getObj('clickCount').src = url;
 	return true;
