@@ -1,44 +1,1816 @@
-<!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta http-equiv="content-type" content="text/html;charset=utf-8">
-        <title>å†œå†</title>
-        <style>
-            body,td,.p1,.p2,.i{font-family:arial}
-            body{margin:6px 0 0 0;background-color:#fff;color:#000;position:relative}
-            input{padding-top:0;padding-bottom:0;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
-            table{border:0}
-            TD{FONT-SIZE:9pt;LINE-HEIGHT:18px;}
-            em{font-style:normal;color:#cc0000}
-            a em{text-decoration:underline;}
 
-        </style>
+<HTML><HEAD><META http-equiv=Content-Type content="text/html; charset=gb2312"><TITLE>hao123ÍòÄêÀú</TITLE>
 
-    </head>
-    <body>
-        <table cellpadding="0" cellspacing="0"><tr><td>
-                    <style>
-                        #cal{width:434px;border:1px solid #c3d9ff;font-size:12px;margin:8px 0 0 15px;}
-                        #cal #top{height:29px;line-height:29px;background:#e7eef8;color:#003784;padding-left:70px;}
-                        #cal #top select{font-size:12px;}
-                        #cal #top input{padding:0;}
-                        #cal ul#wk{margin:0;padding:0;height:25px;}
-                        #cal ul#wk li{float:left;width:60px;text-align:center;line-height:25px;list-style:none;}
-                        #cal ul#wk li b{font-weight:normal;color:#c60b02;}
-                        #cal #cm{clear:left;border-top:1px solid #ddd;border-bottom:1px dotted #ddd;position:relative;}
-                        #cal #cm .cell{position:absolute;width:42px;height:36px;text-align:center;margin:0 0 0 9px;}
-                        #cal #cm .cell .so{font:bold 16px arial;}
-                        #cal #bm{text-align:right;height:24px;line-height:24px;padding:0 13px 0 0;}
-                        #cal #bm a{color:7977ce;}
-                        #cal #fd{display:none;position:absolute;border:1px solid #dddddf;background:#feffcd;padding:10px;line-height:21px;width:150px;}
-                        #cal #fd b{font-weight:normal;color:#c60a00;}
-                    </style>
+<META content="hao123ÍòÄêÀú" name=keywords>
+
+<META content=All name=robots>
+
+<META content="hao123ÍòÄêÀú" name=description>
+
+<meta http-equiv="x-ua-compatible" content="ie=7" />
+
+<style type="text/css">
 
 
-                    <div id="cal"><div id="top">å…¬å…ƒ&nbsp;<select></select>&nbsp;å¹´&nbsp;<select></select>&nbsp;æœˆ&nbsp;&nbsp;&nbsp;&nbsp;å†œå†<span></span>å¹´&nbsp;[&nbsp;<span></span>å¹´&nbsp;]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="å›åˆ°ä»Šå¤©" title="ç‚¹å‡»åè·³è½¬å›ä»Šå¤©" style="padding:0px"></div><ul id="wk"><li>ä¸€</li><li>äºŒ</li><li>ä¸‰</li><li>å››</li><li>äº”</li><li><b>å…­</b></li><li><b>æ—¥</b></li></ul><div id="cm"></div><div id="bm"></div></div>
 
-    <%= javascript_include_tag 'tools/bdcalendar', 'data-turbolinks-track' => true %>
-        </td></tr></table>
+p {fONT-FAMILY: ËÎÌå; FONT-SIZE: 9pt;line-height:12pt:color:#000000}
 
-    </body>
-</html>
+
+
+TD {fONT-FAMILY: ËÎÌå,simsun; FONT-SIZE: 9pt}
+
+    
+
+a:link{ color:#000000; text-decoration:none}
+
+a:visited{COLOR: #000000; TEXT-DECORATION: none}
+
+a:active{color:green;text-decoration:none}
+
+a:hover{color:red;text-decoration:underline}
+
+button{width:39px;height:21px;padding:2px;}
+
+</style>
+
+
+
+
+
+
+
+<SCRIPT language=JavaScript>
+
+<!--
+
+var blnSummerTime = false;
+
+/*****************************************************************************
+
+                                   ÈÕÆÚ×ÊÁÏ
+
+*****************************************************************************/
+
+
+
+var lunarInfo=new Array(
+
+0x04bd8,0x04ae0,0x0a570,0x054d5,0x0d260,0x0d950,0x16554,0x056a0,0x09ad0,0x055d2,
+
+0x04ae0,0x0a5b6,0x0a4d0,0x0d250,0x1d255,0x0b540,0x0d6a0,0x0ada2,0x095b0,0x14977,
+
+0x04970,0x0a4b0,0x0b4b5,0x06a50,0x06d40,0x1ab54,0x02b60,0x09570,0x052f2,0x04970,
+
+0x06566,0x0d4a0,0x0ea50,0x06e95,0x05ad0,0x02b60,0x186e3,0x092e0,0x1c8d7,0x0c950,
+
+0x0d4a0,0x1d8a6,0x0b550,0x056a0,0x1a5b4,0x025d0,0x092d0,0x0d2b2,0x0a950,0x0b557,
+
+0x06ca0,0x0b550,0x15355,0x04da0,0x0a5b0,0x14573,0x052b0,0x0a9a8,0x0e950,0x06aa0,
+
+0x0aea6,0x0ab50,0x04b60,0x0aae4,0x0a570,0x05260,0x0f263,0x0d950,0x05b57,0x056a0,
+
+0x096d0,0x04dd5,0x04ad0,0x0a4d0,0x0d4d4,0x0d250,0x0d558,0x0b540,0x0b6a0,0x195a6,
+
+0x095b0,0x049b0,0x0a974,0x0a4b0,0x0b27a,0x06a50,0x06d40,0x0af46,0x0ab60,0x09570,
+
+0x04af5,0x04970,0x064b0,0x074a3,0x0ea50,0x06b58,0x055c0,0x0ab60,0x096d5,0x092e0,
+
+0x0c960,0x0d954,0x0d4a0,0x0da50,0x07552,0x056a0,0x0abb7,0x025d0,0x092d0,0x0cab5,
+
+0x0a950,0x0b4a0,0x0baa4,0x0ad50,0x055d9,0x04ba0,0x0a5b0,0x15176,0x052b0,0x0a930,
+
+0x07954,0x06aa0,0x0ad50,0x05b52,0x04b60,0x0a6e6,0x0a4e0,0x0d260,0x0ea65,0x0d530,
+
+0x05aa0,0x076a3,0x096d0,0x04bd7,0x04ad0,0x0a4d0,0x1d0b6,0x0d250,0x0d520,0x0dd45,
+
+0x0b5a0,0x056d0,0x055b2,0x049b0,0x0a577,0x0a4b0,0x0aa50,0x1b255,0x06d20,0x0ada0,
+
+0x14b63);
+
+
+
+var solarMonth=new Array(31,28,31,30,31,30,31,31,30,31,30,31);
+
+var Gan=new Array("¼×","ÒÒ","±û","¶¡","Îì","¼º","¸ı","ĞÁ","ÈÉ","¹ï");
+
+var Zhi=new Array("×Ó","³ó","Òú","Ã®","³½","ËÈ","Îç","Î´","Éê","ÓÏ","Ğç","º¥");
+
+var Animals=new Array("Êó","Å£","»¢","ÍÃ","Áú","Éß","Âí","Ñò","ºï","¼¦","¹·","Öí");
+
+var solarTerm = new Array("Ğ¡º®","´óº®","Á¢´º","ÓêË®","¾ªÕİ","´º·Ö","ÇåÃ÷","¹ÈÓê","Á¢ÏÄ","Ğ¡Âú","Ã¢ÖÖ","ÏÄÖÁ","Ğ¡Êî","´óÊî","Á¢Çï","´¦Êî","°×Â¶","Çï·Ö","º®Â¶","Ëª½µ","Á¢¶¬","Ğ¡Ñ©","´óÑ©","¶¬ÖÁ");
+
+var sTermInfo = new Array(0,21208,42467,63836,85337,107014,128867,150921,173149,195551,218072,240693,263343,285989,308563,331033,353350,375494,397447,419210,440795,462224,483532,504758);
+
+var nStr1 = new Array('ÈÕ','Ò»','¶ş','Èı','ËÄ','Îå','Áù','Æß','°Ë','¾Å','Ê®');
+
+var nStr2 = new Array('³õ','Ê®','Ø¥','Ø¦','¡õ');
+
+var monthName = new Array("JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC");
+
+
+
+//¹úÀú½ÚÈÕ *±íÊ¾·Å¼ÙÈÕ
+
+var sFtv = new Array(
+
+"0101*Ôªµ©½Ú",
+
+"0202 ÊÀ½çÊªµØÈÕ",
+
+"0210 ¹ú¼ÊÆøÏó½Ú",
+
+"0214 ÇéÈË½Ú",
+
+"0301 ¹ú¼Êº£±ªÈÕ",
+
+"0303 È«¹ú°®¶úÈÕ",
+
+"0305 Ñ§À×·æ¼ÍÄîÈÕ",
+
+"0308 ¸¾Å®½Ú",
+
+"0312 Ö²Ê÷½Ú ËïÖĞÉ½ÊÅÊÀ¼ÍÄîÈÕ",
+
+"0314 ¹ú¼Ê¾¯²ìÈÕ",
+
+"0315 Ïû·ÑÕßÈ¨ÒæÈÕ",
+
+"0317 ÖĞ¹ú¹úÒ½½Ú ¹ú¼Êº½º£ÈÕ",
+
+"0321 ÊÀ½çÉ­ÁÖÈÕ Ïû³ıÖÖ×åÆçÊÓ¹ú¼ÊÈÕ ÊÀ½ç¶ù¸èÈÕ",
+
+"0322 ÊÀ½çË®ÈÕ",
+
+"0323 ÊÀ½çÆøÏóÈÕ",
+
+"0324 ÊÀ½ç·ÀÖÎ½áºË²¡ÈÕ",
+
+"0325 È«¹úÖĞĞ¡Ñ§Éú°²È«½ÌÓıÈÕ",
+
+"0330 °ÍÀÕË¹Ì¹¹úÍÁÈÕ",
+
+"0401 ÓŞÈË½Ú È«¹ú°®¹úÎÀÉúÔË¶¯ÔÂ(ËÄÔÂ) Ë°ÊÕĞû´«ÔÂ(ËÄÔÂ)",
+
+"0407 ÊÀ½çÎÀÉúÈÕ",
+
+"0422 ÊÀ½çµØÇòÈÕ",
+
+"0423 ÊÀ½çÍ¼ÊéºÍ°æÈ¨ÈÕ",
+
+"0424 ÑÇ·ÇĞÂÎÅ¹¤×÷ÕßÈÕ",
+
+"0429*ÀÍ¶¯½Ú¼ÙÈÕ",
+
+"0430*ÀÍ¶¯½Ú¼ÙÈÕ",
+
+"0501*ÀÍ¶¯½Ú",
+
+"0504 ÇàÄê½Ú",
+
+"0505 µâÈ±·¦²¡·ÀÖÎÈÕ",
+
+"0508 ÊÀ½çºìÊ®×ÖÈÕ",
+
+"0512 ¹ú¼Ê»¤Ê¿½Ú",
+
+"0515 ¹ú¼Ê¼ÒÍ¥ÈÕ",
+
+"0517 ¹ú¼ÊµçĞÅÈÕ",
+
+"0518 ¹ú¼Ê²©Îï¹İÈÕ",
+
+"0520 È«¹úÑ§ÉúÓªÑøÈÕ",
+
+"0523 ¹ú¼ÊÅ£ÄÌÈÕ",
+
+"0531 ÊÀ½çÎŞÑÌÈÕ", 
+
+"0601 ¹ú¼Ê¶ùÍ¯½Ú",
+
+"0605 ÊÀ½ç»·¾³±£»¤ÈÕ",
+
+"0606 È«¹ú°®ÑÛÈÕ",
+
+"0617 ·ÀÖÎ»ÄÄ®»¯ºÍ¸ÉºµÈÕ",
+
+"0623 ¹ú¼Ê°ÂÁÖÆ¥¿ËÈÕ",
+
+"0625 È«¹úÍÁµØÈÕ",
+
+"0626 ¹ú¼Ê½û¶¾ÈÕ",
+
+"0701 Ïã¸Û»Ø¹é¼ÍÄîÈÕ ÖĞ¹²µ®³½ ÊÀ½ç½¨ÖşÈÕ",
+
+"0702 ¹ú¼ÊÌåÓı¼ÇÕßÈÕ",
+
+"0707 ¿¹ÈÕÕ½Õù¼ÍÄîÈÕ",
+
+"0711 ÊÀ½çÈË¿ÚÈÕ",
+
+"0730 ·ÇÖŞ¸¾Å®ÈÕ",
+
+"0801 ½¨¾ü½Ú",
+
+"0808 ÖĞ¹úÄĞ×Ó½Ú(°Ö°Ö½Ú)",
+
+"0815 ¿¹ÈÕÕ½ÕùÊ¤Àû¼ÍÄî",
+
+"0908 ¹ú¼ÊÉ¨Ã¤ÈÕ ¹ú¼ÊĞÂÎÅ¹¤×÷ÕßÈÕ",
+
+"0909 Ã«Ôó¶«ÊÅÊÀ¼ÍÄî",
+
+"0910 ÖĞ¹ú½ÌÊ¦½Ú", 
+
+"0914 ÊÀ½çÇå½àµØÇòÈÕ",
+
+"0916 ¹ú¼Ê³ôÑõ²ã±£»¤ÈÕ",
+
+"0918 ¾Å¡¤Ò»°ËÊÂ±ä¼ÍÄîÈÕ",
+
+"0920 ¹ú¼Ê°®ÑÀÈÕ",
+
+"0927 ÊÀ½çÂÃÓÎÈÕ",
+
+"0928 ¿××Óµ®³½",
+
+"1001*¹úÇì½Ú ÊÀ½çÒôÀÖÈÕ ¹ú¼ÊÀÏÈË½Ú",
+
+"1002*¹úÇì½Ú¼ÙÈÕ ¹ú¼ÊºÍÆ½ÓëÃñÖ÷×ÔÓÉ¶·ÕùÈÕ",
+
+"1003*¹úÇì½Ú¼ÙÈÕ",
+
+"1004 ÊÀ½ç¶¯ÎïÈÕ",
+
+"1006 ÀÏÈË½Ú",
+
+"1008 È«¹ú¸ßÑªÑ¹ÈÕ ÊÀ½çÊÓ¾õÈÕ",
+
+"1009 ÊÀ½çÓÊÕşÈÕ Íò¹úÓÊÁªÈÕ",
+
+"1010 ĞÁº¥¸ïÃü¼ÍÄîÈÕ ÊÀ½ç¾«ÉñÎÀÉúÈÕ",
+
+"1013 ÊÀ½ç±£½¡ÈÕ ¹ú¼Ê½ÌÊ¦½Ú",
+
+"1014 ÊÀ½ç±ê×¼ÈÕ",
+
+"1015 ¹ú¼ÊÃ¤ÈË½Ú(°×ÊÖÕÈ½Ú)",
+
+"1016 ÊÀ½çÁ¸Ê³ÈÕ",
+
+"1017 ÊÀ½çÏû³ıÆ¶À§ÈÕ",
+
+"1022 ÊÀ½ç´«Í³Ò½Ò©ÈÕ",
+
+"1024 ÁªºÏ¹úÈÕ",
+
+"1031 ÊÀ½çÇÚ¼óÈÕ",
+
+"1107 Ê®ÔÂÉç»áÖ÷Òå¸ïÃü¼ÍÄîÈÕ",
+
+"1108 ÖĞ¹ú¼ÇÕßÈÕ",
+
+"1109 È«¹úÏû·À°²È«Ğû´«½ÌÓıÈÕ",
+
+"1110 ÊÀ½çÇàÄê½Ú",
+
+"1111 ¹ú¼Ê¿ÆÑ§ÓëºÍÆ½ÖÜ(±¾ÈÕËùÊôµÄÒ»ÖÜ)",
+
+"1112 ËïÖĞÉ½µ®³½¼ÍÄîÈÕ",
+
+"1114 ÊÀ½çÌÇÄò²¡ÈÕ",
+
+"1117 ¹ú¼Ê´óÑ§Éú½Ú ÊÀ½çÑ§Éú½Ú",
+
+"1120*ÒÍ×åÄê",
+
+"1121*ÒÍ×åÄê ÊÀ½çÎÊºòÈÕ ÊÀ½çµçÊÓÈÕ",
+
+"1122*ÒÍ×åÄê",
+
+"1129 ¹ú¼ÊÉùÔ®°ÍÀÕË¹Ì¹ÈËÃñ¹ú¼ÊÈÕ",
+
+"1201 ÊÀ½ç°¬×Ì²¡ÈÕ",
+
+"1203 ÊÀ½ç²Ğ¼²ÈËÈÕ",
+
+"1205 ¹ú¼Ê¾­¼ÃºÍÉç»á·¢Õ¹Ö¾Ô¸ÈËÔ±ÈÕ",
+
+"1208 ¹ú¼Ê¶ùÍ¯µçÊÓÈÕ",
+
+"1209 ÊÀ½ç×ãÇòÈÕ",
+
+"1210 ÊÀ½çÈËÈ¨ÈÕ",
+
+"1212 Î÷°²ÊÂ±ä¼ÍÄîÈÕ",
+
+"1213 ÄÏ¾©´óÍÀÉ±(1937Äê)¼ÍÄîÈÕ£¡½ô¼ÇÑªÀáÊ·£¡",
+
+"1220 °ÄÃÅ»Ø¹é¼ÍÄî",
+
+"1221 ¹ú¼ÊÀºÇòÈÕ",
+
+"1224 Æ½°²Ò¹",
+
+"1225 Ê¥µ®½Ú",
+
+"1226 Ã«Ôó¶«µ®³½¼ÍÄî")
+
+
+
+//Å©Àú½ÚÈÕ *±íÊ¾·Å¼ÙÈÕ
+
+var lFtv = new Array(
+
+"0101*´º½Ú",
+
+"0102*³õ¶ş",
+
+"0103*³õÈı",
+
+"0115 ÔªÏü½Ú",
+
+"0505 ¶ËÎç½Ú",
+
+"0707 ÆßÏ¦ÇéÈË½Ú",
+
+"0715 ÖĞÔª½Ú",
+
+"0815 ÖĞÇï½Ú",
+
+"0909 ÖØÑô½Ú",
+
+"1208 À°°Ë½Ú",
+
+"1223 Ğ¡Äê",
+
+"0100 ³ıÏ¦")
+
+
+
+//Ä³ÔÂµÄµÚ¼¸¸öĞÇÆÚ¼¸
+
+var wFtv = new Array(
+
+"0150 ÊÀ½çÂé·çÈÕ", //Ò»ÔÂµÄ×îºóÒ»¸öĞÇÆÚÈÕ£¨ÔÂµ¹ÊıµÚÒ»¸öĞÇÆÚÈÕ£©
+
+"0520 ¹ú¼ÊÄ¸Ç×½Ú",
+
+"0530 È«¹úÖú²ĞÈÕ",
+
+"0630 ¸¸Ç×½Ú",
+
+"0730 ±»Å«ÒÛ¹ú¼ÒÖÜ",
+
+"0932 ¹ú¼ÊºÍÆ½ÈÕ",
+
+"0940 ¹ú¼ÊÁûÈË½Ú ÊÀ½ç¶ùÍ¯ÈÕ",
+
+"0950 ÊÀ½çº£ÊÂÈÕ",
+
+"1011 ¹ú¼Ê×¡·¿ÈÕ",
+
+"1013 ¹ú¼Ê¼õÇá×ÔÈ»ÔÖº¦ÈÕ(¼õÔÖÈÕ)",
+
+"1144 ¸Ğ¶÷½Ú")
+
+
+
+/*****************************************************************************
+
+ÈÕÆÚ¼ÆËã
+
+*****************************************************************************/
+
+
+
+//====================================== ·µ»ØÅ©Àú yÄêµÄ×ÜÌìÊı
+
+function lYearDays(y) {
+
+var i, sum = 348;
+
+for(i=0x8000; i>0x8; i>>=1) sum += (lunarInfo[y-1900] & i)? 1: 0;
+
+return(sum+leapDays(y));
+
+}
+
+
+
+//====================================== ·µ»ØÅ©Àú yÄêÈòÔÂµÄÌìÊı
+
+function leapDays(y) {
+
+if(leapMonth(y))  return((lunarInfo[y-1900] & 0x10000)? 30: 29);
+
+else return(0);
+
+}
+
+
+
+//====================================== ·µ»ØÅ©Àú yÄêÈòÄÄ¸öÔÂ 1-12 , Ã»Èò·µ»Ø 0
+
+function leapMonth(y) {
+
+return(lunarInfo[y-1900] & 0xf);
+
+}
+
+
+
+//====================================== ·µ»ØÅ©Àú yÄêmÔÂµÄ×ÜÌìÊı
+
+function monthDays(y,m) {
+
+return( (lunarInfo[y-1900] & (0x10000>>m))? 30: 29 );
+
+}
+
+
+
+
+
+//====================================== Ëã³öÅ©Àú, ´«ÈëÈÕÆÚ¿Ø¼ş, ·µ»ØÅ©ÀúÈÕÆÚ¿Ø¼ş
+
+//                                       ¸Ã¿Ø¼şÊôĞÔÓĞ .year .month .day .isLeap
+
+function Lunar(objDate) {
+
+
+
+var i, leap=0, temp=0;
+
+var offset   = (Date.UTC(objDate.getFullYear(),objDate.getMonth(),objDate.getDate()) - Date.UTC(1900,0,31))/86400000;
+
+
+
+for(i=1900; i<2050 && offset>0; i++) { temp=lYearDays(i); offset-=temp; }
+
+
+
+if(offset<0) { offset+=temp; i--; }
+
+
+
+this.year = i;
+
+
+
+leap = leapMonth(i); //ÈòÄÄ¸öÔÂ
+
+this.isLeap = false;
+
+
+
+for(i=1; i<13 && offset>0; i++) {
+
+//ÈòÔÂ
+
+if(leap>0 && i==(leap+1) && this.isLeap==false)
+
+{ --i; this.isLeap = true; temp = leapDays(this.year); }
+
+else
+
+{ temp = monthDays(this.year, i); }
+
+
+
+//½â³ıÈòÔÂ
+
+if(this.isLeap==true && i==(leap+1)) this.isLeap = false;
+
+
+
+offset -= temp;
+
+}
+
+
+
+if(offset==0 && leap>0 && i==leap+1)
+
+if(this.isLeap)
+
+{ this.isLeap = false; }
+
+else
+
+{ this.isLeap = true; --i; }
+
+
+
+if(offset<0){ offset += temp; --i; }
+
+
+
+this.month = i;
+
+this.day = offset + 1;
+
+}
+
+
+
+//==============================·µ»Ø¹«Àú yÄêÄ³m+1ÔÂµÄÌìÊı
+
+function solarDays(y,m) {
+
+if(m==1)
+
+return(((y%4 == 0) && (y%100 != 0) || (y%400 == 0))? 29: 28);
+
+else
+
+return(solarMonth[m]);
+
+}
+
+//============================== ´«Èë offset ·µ»Ø¸ÉÖ§, 0=¼××Ó
+
+function cyclical(num) {
+
+return(Gan[num%10]+Zhi[num%12]);
+
+}
+
+
+
+//============================== ÒõÀúÊôĞÔ
+
+function calElement(sYear,sMonth,sDay,week,lYear,lMonth,lDay,isLeap,cYear,cMonth,cDay) {
+
+
+
+this.isToday    = false;
+
+//°ê¾ä
+
+this.sYear      = sYear;   //¹«ÔªÄê4Î»Êı×Ö
+
+this.sMonth     = sMonth;  //¹«ÔªÔÂÊı×Ö
+
+this.sDay       = sDay;    //¹«ÔªÈÕÊı×Ö
+
+this.week       = week;    //ĞÇÆÚ, 1¸öÖĞÎÄ
+
+//Å©Àú
+
+this.lYear      = lYear;   //¹«ÔªÄê4Î»Êı×Ö
+
+this.lMonth     = lMonth;  //Å©ÀúÔÂÊı×Ö
+
+this.lDay       = lDay;    //Å©ÀúÈÕÊı×Ö
+
+this.isLeap     = isLeap;  //ÊÇ·ñÎªÅ©ÀúÈòÔÂ?
+
+//°Ë×Ö
+
+this.cYear      = cYear;   //ÄêÖù, 2¸öÖĞÎÄ
+
+this.cMonth     = cMonth;  //ÔÂÖù, 2¸öÖĞÎÄ
+
+this.cDay       = cDay;    //ÈÕÖù, 2¸öÖĞÎÄ
+
+
+
+this.color      = '';
+
+
+
+this.lunarFestival = ''; //Å©Àú½ÚÈÕ
+
+this.solarFestival = ''; //¹«Àú½ÚÈÕ
+
+this.solarTerms    = ''; //½ÚÆø
+
+}
+
+
+
+//===== Ä³ÄêµÄµÚn¸ö½ÚÆøÎª¼¸ÈÕ(´Ó0Ğ¡º®ÆğËã)
+
+function sTerm(y,n) {
+
+var offDate = new Date( ( 31556925974.7*(y-1900) + sTermInfo[n]*60000  ) + Date.UTC(1900,0,6,2,5) );
+
+return(offDate.getUTCDate());
+
+}
+
+
+
+
+
+
+
+
+
+//============================== ·µ»ØÒõÀú¿Ø¼ş (yÄê,m+1ÔÂ)
+
+/*
+
+¹¦ÄÜËµÃ÷: ·µ»ØÕû¸öÔÂµÄÈÕÆÚ×ÊÁÏ¿Ø¼ş
+
+
+
+Ê¹ÓÃ·½Ê½: OBJ = new calendar(Äê,ÁãÆğËãÔÂ);
+
+
+
+OBJ.length      ·µ»Øµ±ÔÂ×î´óÈÕ
+
+OBJ.firstWeek   ·µ»Øµ±ÔÂÒ»ÈÕĞÇÆÚ
+
+
+
+ÓÉ OBJ[ÈÕÆÚ].ÊôĞÔÃû³Æ ¼´¿ÉÈ¡µÃ¸÷ÏîÖµ
+
+
+
+OBJ[ÈÕÆÚ].isToday  ·µ»ØÊÇ·ñÎª½ñÈÕ true »ò false
+
+
+
+ÆäËû OBJ[ÈÕÆÚ] ÊôĞÔ²Î¼û calElement() ÖĞµÄ×¢½â
+
+*/
+
+function calendar(y,m) {
+
+
+
+var sDObj, lDObj, lY, lM, lD=1, lL, lX=0, tmp1, tmp2, tmp3;
+
+var cY, cM, cD; //ÄêÖù,ÔÂÖù,ÈÕÖù
+
+var lDPOS = new Array(3);
+
+var n = 0;
+
+var firstLM = 0;
+
+
+
+sDObj = new Date(y,m,1,0,0,0,0);    //µ±ÔÂÒ»ÈÕÈÕÆÚ
+
+
+
+this.length    = solarDays(y,m);    //¹«Àúµ±ÔÂÌìÊı
+
+this.firstWeek = sDObj.getDay();    //¹«Àúµ±ÔÂ1ÈÕĞÇÆÚ¼¸
+
+
+
+////////ÄêÖù 1900ÄêÁ¢´ººóÎª¸ı×ÓÄê(60½øÖÆ36)
+
+if(m<2) cY=cyclical(y-1900+36-1);
+
+else cY=cyclical(y-1900+36);
+
+var term2=sTerm(y,2); //Á¢´ºÈÕÆÚ
+
+
+
+////////ÔÂÖù 1900Äê1ÔÂĞ¡º®ÒÔÇ°Îª ±û×ÓÔÂ(60½øÖÆ12)
+
+var firstNode = sTerm(y,m*2) //·µ»Øµ±ÔÂ¡¸½Ú¡¹Îª¼¸ÈÕ¿ªÊ¼
+
+cM = cyclical((y-1900)*12+m+12);
+
+
+
+//µ±ÔÂÒ»ÈÕÓë 1900/1/1 Ïà²îÌìÊı
+
+//1900/1/1Óë 1970/1/1 Ïà²î25567ÈÕ, 1900/1/1 ÈÕÖùÎª¼×ĞçÈÕ(60½øÖÆ10)
+
+var dayCyclical = Date.UTC(y,m,1,0,0,0,0)/86400000+25567+10;
+
+
+
+for(var i=0;i<this.length;i++) {
+
+
+
+if(lD>lX) {
+
+sDObj = new Date(y,m,i+1);    //µ±ÔÂÒ»ÈÕÈÕÆÚ
+
+lDObj = new Lunar(sDObj);     //Å©Àú
+
+lY    = lDObj.year;           //Å©ÀúÄê
+
+lM    = lDObj.month;          //Å©ÀúÔÂ
+
+lD    = lDObj.day;            //Å©ÀúÈÕ
+
+lL    = lDObj.isLeap;         //Å©ÀúÊÇ·ñÈòÔÂ
+
+lX    = lL? leapDays(lY): monthDays(lY,lM); //Å©Àúµ±ÔÂ×îºóÒ»Ìì
+
+
+
+if(n==0) firstLM = lM;
+
+lDPOS[n++] = i-lD+1;
+
+}
+
+
+
+//ÒÀ½ÚÆøµ÷Õû¶şÔÂ·ÖµÄÄêÖù, ÒÔÁ¢´ºÎª½ç
+
+if(m==1 && (i+1)==term2) cY=cyclical(y-1900+36);
+
+//ÒÀ½ÚÆøÔÂÖù, ÒÔ¡¸½Ú¡¹Îª½ç
+
+if((i+1)==firstNode) cM = cyclical((y-1900)*12+m+13);
+
+//ÈÕÖù
+
+cD = cyclical(dayCyclical+i);
+
+
+
+//sYear,sMonth,sDay,week,
+
+//lYear,lMonth,lDay,isLeap,
+
+//cYear,cMonth,cDay
+
+this[i] = new calElement(y, m+1, i+1, nStr1[(i+this.firstWeek)%7],
+
+lY, lM, lD++, lL,
+
+cY ,cM, cD );
+
+}
+
+
+
+//½ÚÆø
+
+tmp1=sTerm(y,m*2  )-1;
+
+tmp2=sTerm(y,m*2+1)-1;
+
+this[tmp1].solarTerms = solarTerm[m*2];
+
+this[tmp2].solarTerms = solarTerm[m*2+1];
+
+if(m==3) this[tmp1].color = 'red'; //ÇåÃ÷ÑÕÉ«
+
+
+
+//¹«Àú½ÚÈÕ
+
+for(i in sFtv)
+
+if(sFtv[i].match(/^(\d{2})(\d{2})([\s\*])(.+)$/))
+
+if(Number(RegExp.$1)==(m+1)) {
+
+this[Number(RegExp.$2)-1].solarFestival += RegExp.$4 + ' ';
+
+if(RegExp.$3=='*') this[Number(RegExp.$2)-1].color = 'red';
+
+}
+
+
+
+//ÔÂÖÜ½ÚÈÕ
+
+for(i in wFtv)
+
+if(wFtv[i].match(/^(\d{2})(\d)(\d)([\s\*])(.+)$/))
+
+if(Number(RegExp.$1)==(m+1)) {
+
+tmp1=Number(RegExp.$2);
+
+tmp2=Number(RegExp.$3);
+
+if(tmp1<5)
+
+this[((this.firstWeek>tmp2)?7:0) + 7*(tmp1-1) + tmp2 - this.firstWeek].solarFestival += RegExp.$5 + ' ';
+
+else {
+
+tmp1 -= 5;
+
+tmp3 = (this.firstWeek+this.length-1)%7; //µ±ÔÂ×îºóÒ»ÌìĞÇÆÚ?
+
+this[this.length - tmp3 - 7*tmp1 + tmp2 - (tmp2>tmp3?7:0) - 1 ].solarFestival += RegExp.$5 + ' ';
+
+}
+
+}
+
+
+
+//Å©Àú½ÚÈÕ
+
+for(i in lFtv)
+
+if(lFtv[i].match(/^(\d{2})(.{2})([\s\*])(.+)$/)) {
+
+tmp1=Number(RegExp.$1)-firstLM;
+
+if(tmp1==-11) tmp1=1;
+
+if(tmp1 >=0 && tmp1<n) {
+
+tmp2 = lDPOS[tmp1] + Number(RegExp.$2) -1;
+
+if( tmp2 >= 0 && tmp2<this.length && this[tmp2].isLeap!=true) {
+
+this[tmp2].lunarFestival += RegExp.$4 + ' ';
+
+if(RegExp.$3=='*') this[tmp2].color = 'red';
+
+}
+
+}
+
+}
+
+
+
+
+
+//¸´»î½ÚÖ»³öÏÖÔÚ3»ò4ÔÂ
+
+if(m==2 || m==3) {
+
+var estDay = new easter(y);
+
+if(m == estDay.m)
+
+this[estDay.d-1].solarFestival = this[estDay.d-1].solarFestival+' ¸´»î½Ú Easter Sunday';
+
+}
+
+
+
+
+
+if(m==2) this[20].solarFestival = this[20].solarFestival+unescape('%20%u6D35%u8CE2%u751F%u65E5');
+
+
+
+//ºÚÉ«ĞÇÆÚÎå
+
+if((this.firstWeek+12)%7==5)
+
+this[12].solarFestival += 'ºÚÉ«ĞÇÆÚÎå';
+
+
+
+//½ñÈÕ
+
+if(y==tY && m==tM) this[tD-1].isToday = true;
+
+}
+
+
+
+//======================================= ·µ»Ø¸ÃÄêµÄ¸´»î½Ú(´º·ÖºóµÚÒ»´ÎÂúÔÂÖÜºóµÄµÚÒ»Ö÷ÈÕ)
+
+function easter(y) {
+
+
+
+var term2=sTerm(y,5); //È¡µÃ´º·ÖÈÕÆÚ
+
+var dayTerm2 = new Date(Date.UTC(y,2,term2,0,0,0,0)); //È¡µÃ´º·ÖµÄ¹«ÀúÈÕÆÚ¿Ø¼ş(´º·ÖÒ»¶¨³öÏÖÔÚ3ÔÂ)
+
+var lDayTerm2 = new Lunar(dayTerm2); //È¡µÃÈ¡µÃ´º·ÖÅ©Àú
+
+
+
+if(lDayTerm2.day<15) //È¡µÃÏÂ¸öÔÂÔ²µÄÏà²îÌìÊı
+
+var lMlen= 15-lDayTerm2.day;
+
+else
+
+var lMlen= (lDayTerm2.isLeap? leapDays(y): monthDays(y,lDayTerm2.month)) - lDayTerm2.day + 15;
+
+
+
+//Ò»ÌìµÈÓÚ 1000*60*60*24 = 86400000 ºÁÃë
+
+var l15 = new Date(dayTerm2.getTime() + 86400000*lMlen ); //Çó³öµÚÒ»´ÎÔÂÔ²Îª¹«Àú¼¸ÈÕ
+
+var dayEaster = new Date(l15.getTime() + 86400000*( 7-l15.getUTCDay() ) ); //Çó³öÏÂ¸öÖÜÈÕ
+
+
+
+this.m = dayEaster.getUTCMonth();
+
+this.d = dayEaster.getUTCDate();
+
+
+
+}
+
+
+
+//====================== ÖĞÎÄÈÕÆÚ
+
+function cDay(d){
+
+var s;
+
+
+
+switch (d) {
+
+case 10:
+
+s = '³õÊ®'; break;
+
+case 20:
+
+s = '¶şÊ®'; break;
+
+break;
+
+case 30:
+
+s = 'ÈıÊ®'; break;
+
+break;
+
+default :
+
+s = nStr2[Math.floor(d/10)];
+
+s += nStr1[d%10];
+
+}
+
+return(s);
+
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+
+
+
+var cld;
+
+
+
+function drawCld(SY,SM) {
+
+var i,sD,s,size;
+
+cld = new calendar(SY,SM);
+
+
+
+if(SY>1874 && SY<1909) yDisplay = '¹âĞ÷' + (((SY-1874)==1)?'Ôª':SY-1874);
+
+if(SY>1908 && SY<1912) yDisplay = 'ĞûÍ³' + (((SY-1908)==1)?'Ôª':SY-1908);
+
+
+
+if(SY>1911) yDisplay = '½¨¹ú' + (((SY-1949)==1)?'Ôª':SY-1949);
+
+
+
+GZ.innerHTML = yDisplay +'Äê Å©Àú ' + cyclical(SY-1900+36) + 'Äê ¡¾'+Animals[(SY-4)%12]+'Äê¡¿';
+
+
+
+YMBG.innerHTML = "&nbsp;" + SY + "<BR>&nbsp;" + monthName[SM];
+
+
+
+for(i=0;i<42;i++) {
+
+
+
+sObj=eval('SD'+ i);
+
+lObj=eval('LD'+ i);
+
+
+
+sObj.className = '';
+
+
+
+sD = i - cld.firstWeek;
+
+
+
+if(sD>-1 && sD<cld.length) { //ÈÕÆÚÄÚ
+
+sObj.innerHTML = sD+1;
+
+
+
+if(cld[sD].isToday) sObj.className = 'todyaColor'; //½ñÈÕÑÕÉ«
+
+
+
+sObj.style.color = cld[sD].color; //·¨¶¨¼ÙÈÕÑÕÉ«
+
+
+
+if(cld[sD].lDay==1) //ÏÔÊ¾Å©ÀúÔÂ
+
+lObj.innerHTML = '<b>'+(cld[sD].isLeap?'Èò':'') + cld[sD].lMonth + 'ÔÂ' + (monthDays(cld[sD].lYear,cld[sD].lMonth)==29?'Ğ¡':'´ó')+'</b>';
+
+else //ÏÔÊ¾Å©ÀúÈÕ
+
+lObj.innerHTML = cDay(cld[sD].lDay);
+
+
+
+s=cld[sD].lunarFestival;
+
+if(s.length>0) { //Å©Àú½ÚÈÕ
+
+if(s.length>6) s = s.substr(0, 4)+'..';
+
+s = s.fontcolor('red');
+
+}
+
+else { //¹«Àú½ÚÈÕ
+
+s=cld[sD].solarFestival;
+
+if(s.length>0) {
+
+size = (s.charCodeAt(0)>0 && s.charCodeAt(0)<128)?8:4;
+
+if(s.length>size+2) s = s.substr(0, size)+'..';
+
+s=(s=='ºÚÉ«ĞÇÆÚÎå')?s.fontcolor('black'):s.fontcolor('blue');
+
+}
+
+else { //Ø¥ËÄ½ÚÆø
+
+s=cld[sD].solarTerms;
+
+if(s.length>0) s = s.fontcolor('limegreen');
+
+}
+
+}
+
+
+
+if(cld[sD].solarTerms=='ÇåÃ÷') s = 'ÇåÃ÷½Ú'.fontcolor('red');
+
+if(cld[sD].solarTerms=='Ã¢ÖÖ') s = 'Ã¢ÖÖ½Ú'.fontcolor('red');
+
+if(cld[sD].solarTerms=='ÏÄÖÁ') s = 'ÏÄÖÁ½Ú'.fontcolor('red');
+
+if(cld[sD].solarTerms=='¶¬ÖÁ') s = '¶¬ÖÁ½Ú'.fontcolor('red');
+
+
+
+
+
+
+
+if(s.length>0) lObj.innerHTML = s;
+
+
+
+}
+
+else { //·ÇÈÕÆÚ
+
+sObj.innerHTML = '';
+
+lObj.innerHTML = '';
+
+}
+
+}
+
+}
+
+
+
+
+
+function changeCld() {
+
+var y,m;
+
+y=CLD.SY.selectedIndex+1900;
+
+m=CLD.SM.selectedIndex;
+
+drawCld(y,m);
+
+}
+
+
+
+function pushBtm(K) {
+
+switch (K){
+
+case 'YU' :
+
+if(CLD.SY.selectedIndex>0) CLD.SY.selectedIndex--;
+
+break;
+
+case 'YD' :
+
+if(CLD.SY.selectedIndex<150) CLD.SY.selectedIndex++;
+
+break;
+
+case 'MU' :
+
+if(CLD.SM.selectedIndex>0) {
+
+CLD.SM.selectedIndex--;
+
+}
+
+else {
+
+CLD.SM.selectedIndex=11;
+
+if(CLD.SY.selectedIndex>0) CLD.SY.selectedIndex--;
+
+}
+
+break;
+
+case 'MD' :
+
+if(CLD.SM.selectedIndex<11) {
+
+CLD.SM.selectedIndex++;
+
+}
+
+else {
+
+CLD.SM.selectedIndex=0;
+
+if(CLD.SY.selectedIndex<150) CLD.SY.selectedIndex++;
+
+}
+
+break;
+
+default :
+
+CLD.SY.selectedIndex=tY-1900;
+
+CLD.SM.selectedIndex=tM;
+
+}
+
+changeCld();
+
+}
+
+
+
+var Today = new Date();
+
+var tY = Today.getFullYear();
+
+var tM = Today.getMonth();
+
+var tD = Today.getDate();
+
+//////////////////////////////////////////////////////////////////////////////
+
+
+
+var width = "130";
+
+var offsetx = 2;
+
+var offsety = 8;
+
+
+
+var x = 0;
+
+var y = 0;
+
+var snow = 0;
+
+var sw = 0;
+
+var cnt = 0;
+
+
+
+var dStyle;
+
+document.onmousemove = mEvn;
+
+
+
+//ÏÔÊ¾ÏêÏ¸ÈÕÆÚ×ÊÁÏ
+
+function mOvr(v) {
+
+var s,festival;
+
+var sObj=eval('SD'+ v);
+
+var d=sObj.innerHTML-1;
+
+
+
+//sYear,sMonth,sDay,week,
+
+//lYear,lMonth,lDay,isLeap,
+
+//cYear,cMonth,cDay
+
+
+
+if(sObj.innerHTML!='') {
+
+
+
+sObj.style.cursor = 's-resize';
+
+
+
+if(cld[d].solarTerms == '' && cld[d].solarFestival == '' && cld[d].lunarFestival == '')
+
+festival = '';
+
+else
+
+festival = '<TABLE WIDTH=100% BORDER=0 CELLPADDING=2 CELLSPACING=0 BGCOLOR="#CCFFCC"><TR><TD>'+
+
+'<FONT COLOR="#000000" STYLE="font-size:9pt;">'+cld[d].solarTerms + ' ' + cld[d].solarFestival + ' ' + cld[d].lunarFestival+'</FONT></TD>'+
+
+'</TR></TABLE>';
+
+
+
+s= '<TABLE WIDTH="130" BORDER=0 CELLPADDING="2" CELLSPACING=0 BGCOLOR="#000066" style="filter:Alpha(opacity=80)"><TR><TD>' +
+
+'<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0><TR><TD ALIGN="right"><FONT COLOR="#ffffff" STYLE="font-size:9pt;">'+
+
+cld[d].sYear+' Äê '+cld[d].sMonth+' ÔÂ '+cld[d].sDay+' ÈÕ<br>ĞÇÆÚ'+cld[d].week+'<br>'+
+
+'<font color="violet">Å©Àú'+(cld[d].isLeap?'Èò ':' ')+cld[d].lMonth+' ÔÂ '+cld[d].lDay+' ÈÕ</font><br>'+
+
+'<font color="yellow">'+cld[d].cYear+'Äê '+cld[d].cMonth+'ÔÂ '+cld[d].cDay + 'ÈÕ</font>'+
+
+'</FONT></TD></TR></TABLE>'+ festival +'</TD></TR></TABLE>';
+
+
+
+document.all["detail"].innerHTML = s;
+
+
+
+if (snow == 0) {
+
+dStyle.left = x+offsetx-(width/2);
+
+dStyle.top = y+offsety;
+
+dStyle.visibility = "visible";
+
+snow = 1;
+
+}
+
+}
+
+}
+
+
+
+//Çå³ıÏêÏ¸ÈÕÆÚ×ÊÁÏ
+
+function mOut() {
+
+if ( cnt >= 1 ) { sw = 0; }
+
+if ( sw == 0 ) { snow = 0; if(dStyle)dStyle.visibility = "hidden";}
+
+else cnt++;
+
+}
+
+
+
+//È¡µÃÎ»ÖÃ
+
+function mEvn(e) {
+
+e= e||window.event;
+
+x=e.clientX;
+
+y=e.clientY;
+
+if (document.body.scrollLeft)
+
+{x=event.x+document.body.scrollLeft; y=event.y+document.body.scrollTop;}
+
+if (snow){
+
+dStyle.left = x+offsetx-(width/2);
+
+dStyle.top = y+offsety;
+
+}
+
+}
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////
+
+
+
+function changeTZ() {
+
+   CITY.innerHTML = CLD.TZ.value.substr(6)
+
+   setCookie("TZ",CLD.TZ.selectedIndex)
+
+}
+
+
+
+
+
+function tick() {
+
+   var today
+
+   today = new Date()
+
+
+
+   Clock.innerHTML = getCnDayString(today);
+
+   Clock2.innerHTML = getEnDayString(TimeAdd(new Date(today.toUTCString().slice(0,-4)), CLD.TZ.value))+(blnSummerTime?"<FONT STYLE='font-size:18pt;font-family:Wingdings; color:red'>R</FONT>":"");
+
+   setTimeout("tick()", 1000);
+
+}
+
+
+
+function setCookie(name, value) {
+
+	var today = new Date()
+
+	var expires = new Date()
+
+	expires.setTime(today.getTime() + 1000*60*60*24*365)
+
+	document.cookie = name + "=" + escape(value)	+ "; expires=" + expires.toGMTString()
+
+}
+
+
+
+function getCookie(Name) {
+
+   var search = Name + "="
+
+   if(document.cookie.length > 0) {
+
+      offset = document.cookie.indexOf(search)
+
+      if(offset != -1) {
+
+         offset += search.length
+
+         end = document.cookie.indexOf(";", offset)
+
+         if(end == -1) end = document.cookie.length
+
+         return unescape(document.cookie.substring(offset, end))
+
+      }
+
+      else return ""
+
+   }
+
+}
+
+
+
+function getCnDayString (dtmDay) {
+
+	return dtmDay.getFullYear()+"Äê"+(dtmDay.getMonth()+1)+"ÔÂ"+dtmDay.getDate()+"ÈÕ "+dtmDay.getHours()+":"+((dtmDay.getMinutes().toString().length==1)?"0":"")+dtmDay.getMinutes()+":"+((dtmDay.getSeconds().toString().length==1)?"0":"")+dtmDay.getSeconds();
+
+}
+
+
+
+function getEnDayString (dtmDay) {
+
+	return dtmDay.getFullYear()+"-"+(dtmDay.getMonth()+1)+"-"+dtmDay.getDate()+" "+dtmDay.getHours()+":"+((dtmDay.getMinutes().toString().length==1)?"0":"")+dtmDay.getMinutes()+":"+((dtmDay.getSeconds().toString().length==1)?"0":"")+dtmDay.getSeconds();
+
+}
+
+
+
+function TimeAdd (UTC,T) {
+
+	var PlusMinus, y;
+
+	if (T.charAt(0)=="-") {
+
+		PlusMinus = -1;
+
+	}
+
+	else {
+
+		PlusMinus = 1
+
+	}
+
+   //alert(UTC)
+
+	//UTC=UTC.slice(4,UTC.length-4);
+
+	//alert(UTC)
+
+	y=UTC.getFullYear();
+
+
+
+	UTC.setMinutes(UTC.getMinutes()-(-T.slice(1,3)*60-T.slice(3,5))*PlusMinus);
+
+//alert(UTC)
+
+	//ÃÀ¹ú¹ú»áÓÚ2005ÄêÍ¨¹ıÀ©´óÈÕ¹â½ÚÔ¼Ê±¼ä·¨°¸£¬½«Ô­À´¿ªÊ¼Ê±¼ä´Ó4ÔÂµÄµÚÒ»¸öĞÇÆÚÈÕ£¬ÌáÔçµ½3ÔÂµÄµÚ¶ş¸öĞÇÆÚÈÕ£»½áÊøÊ±¼äÔò´Ó10ÔÂµÄ×îºóÒ»¸öĞÇÆÚÈÕ£¬ÑÓ³¤µ½11ÔÂµÄµÚÒ»¸öĞÇÆÚÈÕ¡£
+
+	var dtmDaylightSavingBegin,dtmDaylightSavingEnd;
+
+	dtmDaylightSavingBegin = new Date(y,3,0);
+
+	dtmDaylightSavingBegin.setDate(dtmDaylightSavingBegin.getDate()+(7-dtmDaylightSavingBegin.getDay())%7+7);
+
+
+
+	dtmDaylightSavingEnd = new Date(y,10,0);
+
+	dtmDaylightSavingEnd.setDate(dtmDaylightSavingEnd.getDate()+(7-dtmDaylightSavingEnd.getDay())%7);
+
+
+
+	if (T.slice(5,6)=="*" && UTC>=dtmDaylightSavingBegin && UTC<=dtmDaylightSavingEnd) {
+
+		UTC.setHours(UTC.getHours()+1);
+
+		blnSummerTime = true;
+
+	}
+
+
+
+return UTC;
+
+}
+
+/////////////////////////////////////////////////////////
+
+
+
+function initial() {
+
+	if (navigator.userAgent.indexOf('MSIE')<0) {
+
+		document.getElementById("worldmap").innerHTML="&#xf0fb";
+
+	}
+
+	dStyle = detail.style;
+
+	CLD.SY.selectedIndex=tY-1900;
+
+	CLD.SM.selectedIndex=tM;
+
+	drawCld(tY,tM);
+
+	pushBtm('');
+
+	CLD.TZ.selectedIndex=getCookie("TZ");
+
+	changeTZ();
+
+	tick();
+
+}
+
+//-->
+
+</SCRIPT>
+
+
+
+
+
+<STYLE>.todyaColor {
+
+	BACKGROUND-COLOR: aqua
+
+}
+
+</STYLE>
+
+
+
+<META content="MSHTML 6.00.2800.1505" name=GENERATOR></HEAD>
+
+<BODY leftMargin=0 topMargin=0>
+
+
+
+<SCRIPT language=JavaScript>
+
+
+
+lck=0;
+
+function r(hval)
+
+{
+
+if ( lck == 0 )
+
+{
+
+document.bgColor=hval;
+
+}
+
+}
+
+</SCRIPT>
+
+
+
+<DIV id=detail style="POSITION: absolute"></DIV>
+
+<CENTER>
+<br><br>
+<FORM name=CLD onSubmit="return false">
+
+<TABLE>
+
+  <TBODY>
+
+  <TR>
+
+    <TD vAlign=top align=middle><BR><FONT style="FONT-SIZE: 9pt" 
+
+      size=2>±¾»úÊ±¼ä:</FONT><BR><FONT id=Clock face=Arial color=#000080 size=4 
+
+      align="center"></FONT>
+
+      <P><!--Ê±Çø *±íÊ¾×Ô¶¯µ÷ÕûÎªÈÕ¹â½ÚÔ¼Ê±¼ä--><FONT style="FONT-SIZE: 9pt" size=2><SELECT 
+
+      style="FONT-SIZE: 9pt" onchange=changeTZ() name=TZ> <OPTION 
+
+        value="-1200 °²ÄáÍşÍÁ¿Ë¡¢¹Ï¼×À¼" selected>¹ú¼Ê»»ÈÕÏß<OPTION 
+
+        value="-1100 ÖĞÍ¾µº¡¢ÈøÄ¦ÑÇÈºµº">ÈøÄ¦ÑÇ<OPTION value="-1000 ÏÄÍşÒÄ">ÏÄÍşÒÄ<OPTION 
+
+        value=-0900*°¢À­Ë¹¼Ó>°¢À­Ë¹¼Ó<OPTION value=-0800*Ì«Æ½ÑóÊ±¼ä(ÃÀ¼Ó)¡¢ÌáÑÇÄÉ>Ì«Æ½Ñó<OPTION 
+
+        value=-0700*ÑÇÀúÉ£ÄÇ>ÃÀ¹úÉ½Çø<OPTION value=-0700*É½ÇøÊ±¼ä(ÃÀ¼Ó)>ÃÀ¼ÓÉ½Çø<OPTION 
+
+        value=-0600*Èø¿ËÆäÍò(¼ÓÄÃ´ó)>¼ÓÄÃ´óÖĞ²¿<OPTION value=-0600*Ä«Î÷¸çÊĞ¡¢Ëş¿ËÎ÷¿¨ÅÁ>Ä«Î÷¸ç<OPTION 
+
+        value=-0600*ÖĞ²¿Ê±¼ä(ÃÀ¼Ó)>ÃÀ¼ÓÖĞ²¿<OPTION value=-0500*²¨¸ç´ó¡¢ÀïÂê>ÄÏÃÀÖŞÌ«Æ½Ñó<OPTION 
+
+        value=-0500*¶«²¿Ê±¼ä(ÃÀ¼Ó)>ÃÀ¼Ó¶«²¿<OPTION value=-0500*Ó¡µÚ°²ÄÉ(¶«²¿)>ÃÀ¶«<OPTION 
+
+        value=-0400*¼ÓÀ­¿¨Ë¹¡¢À­ÅÁ×È>ÄÏÃÀÖŞÎ÷²¿<OPTION value="-0400*´óÎ÷ÑóÊ±¼ä ¼ÓÄÃ´ó)">´óÎ÷Ñó<OPTION 
+
+        value="-0330 ĞÂµº(¼ÓÄÃ´ó¶«°¶)">Å¦·ÒÀ¼<OPTION value="-0300 ²¨Î÷ÄáÑÇ">¶«ÄÏÃÀÖŞ<OPTION 
+
+        value="-0300 ²¼Â³ÅµË¹°®ÀöË¹¡¢ÇÇÖÎ³Ç">ÄÏÃÀÖŞ¶«²¿<OPTION value=-0200*´óÎ÷ÑóÖĞ²¿>´óÎ÷ÑóÖĞ²¿<OPTION 
+
+        value=-0100*ÑÇËÙ¶ûÈºµº¡¢Î¬µÂ½ÇÈºµº>ÑÇËÙ¶û<OPTION 
+
+        value="+0000 ¸ñÁÖÍşÖÎÊ±¼ä¡¢¶¼°ØÁÖ¡¢°®¶¡±¤¡¢Â×¶Ø">Ó¢¹úÏÄÁî<OPTION 
+
+        value="+0000 ÄªÂåÎ¬ÑÇ(Àµ±ÈÈğÑÇ)¡¢¿¨Èø²¼À¼¿¨">¸ñÁÖÍşÖÎ±ê×¼<OPTION 
+
+        value="+0100 °ÍÀè¡¢ÂíµÂÀï">ÂŞÂí<OPTION value="+0100 ²¼À­¸ñ, »ªÉ³, ²¼´ïÅåË¹">ÖĞÅ·<OPTION 
+
+        value="+0100 °ØÁÖ¡¢Ë¹µÂ¸ç¶ûÄ¦¡¢ÂŞÂí¡¢²®¶÷¡¢²¼Â³Èü¶û¡¢Î¬Ò²ÄÉ">Î÷Å·<OPTION 
+
+        value="+0200 ÒÔÉ«ÁĞ">ÒÔÉ«ÁĞ<OPTION value=+0200*¶«Å·>¶«Å·<OPTION 
+
+        value=+0200*¿ªÂŞ>°£¼°<OPTION value=+0200*ÑÅµä¡¢ºÕ¶ûĞÁ»ù¡¢ÒÁË¹Ì¹±¤>GFT<OPTION 
+
+        value=+0200*ºÕÀ­À×¡¢Æ¤ÍĞÀï>ÄÏ·Ç<OPTION 
+
+        value=+0300*°Í¸ñ´ï¡¢¿ÆÍşÌØ¡¢ÄÎÂå±È(¿ÏÑÇ)¡¢ÀïÑÅµÂ(É³ÎÚµØ)>É³ÎÚµØ°¢À­²®<OPTION 
+
+        value=+0300*ÄªË¹¿Æ¡¢Ê¥±ËµÃ±¤¡¢ºØÕ¼¡¢ÎÑÍß¸ñÈğµÂ>¶íÂŞË¹<OPTION value=+0330*µÂºÚÀ¼>ÒÁÀÊ<OPTION 
+
+        value=+0400*°¢²¼´ï±È(¶«°¢À­²®)¡¢ÄªË¹¿­¡¢Ëş²¼ÀíË¹(ÇÇÖÎÑÇ¹²ºÍ)>°¢À­²®<OPTION 
+
+        value=+0430*¿¦²¼¶û>°¢¸»º¹<OPTION value="+0500 ÒÁË¹À¼Âí°ÍµÂ¡¢¿ËÂåÆæ¡¢ÒÁ¿¨ÌØÁÖ±¤¡¢ËşĞë¿Ï">Î÷ÑÇ<OPTION 
+
+        value="+0530 ÃÏÂò¡¢¼Ó¶û¸÷´ğ¡¢Âí´¹Ë¹¡¢ĞÂµÂÀï¡¢¿ÉÂ×ÆÂ">Ó¡¶È<OPTION 
+
+        value="+0600 °¢ÂíÌá¡¢´ï¿¨">ÖĞÑÇ<OPTION value="+0700 Âü¹È¡¢ÑÇ¼Ó´ï¡¢ºúÖ¾Ã÷ÊĞ">Âü¹È<OPTION 
+
+        value="+0800 ±±¾©¡¢ÖØÇì¡¢ºÚÁú½­">ÖĞ¹ú<OPTION value="+0800 Ì¨Íå¡¢Ïã¸Û¡¢ĞÂ¼ÓÆÂ">Ì¨±±<OPTION 
+
+        value="+0900 ¶«¾©¡¢´óÚæ¡¢Ôú»Ï¡¢ºº³Ç¡¢ÑÇ¿â×È(¶«Î÷²®ÀûÑÇ)">¶«¾©<OPTION 
+
+        value="+0930 ´ï¶ûÎÄ">°ÄÖŞÖĞ²¿<OPTION value="+1000 ²¼ÀïË¹±¾¡¢Ä«¶û±¾¡¢Ï¯µÂÄá">Ï¯µÂÄá<OPTION 
+
+        value="+1000 »ô°ÍÌØ">ËşË¹Ã·ÄáÑÇ<OPTION value="+1000 ¹Øµº¡¢ÄªË¹±È¸Û¡¢º£  Íş">Î÷Ì«Æ½Ñó<OPTION 
+
+        value=+1100*Âí¸ç´ó¡¢ËùÂŞÃÅÈºµº¡¢ĞÂ¿¨Â×¶àÄáÑÇ>Ì«Æ½ÑóÖĞ²¿<OPTION 
+
+        value="+1200 ÍşÁé¶Ù¡¢°Â¿ËÀ¼">Å¦Î÷À¼<OPTION 
+
+      value="+1200 ì³¼Ã¡¢¿Ï¼ÓËş¡¢ÂíĞª¶ûÈºµº">ì³¼Ã</OPTION></SELECT>Ê±¼ä </FONT><BR><FONT 
+
+      id=Clock2 face=Arial color=#000080 size=4 align="center"></FONT><BR><FONT 
+
+      style="FONT-SIZE: 120pt; COLOR: green; FONT-FAMILY:Webdings" id="worldmap">&ucirc;</FONT><BR><FONT 
+
+      id=CITY 
+
+      style="FONT-SIZE: 9pt; WIDTH: 150px; COLOR: blue; FONT-FAMILY: 'ĞÂÏ¸Ã÷Ìå'"></FONT></P>
+
+      </TD>
+
+    <TD align=middle>
+
+      <DIV style="Z-INDEX: -1; POSITION: absolute; TOP: 30px"><FONT id=YMBG 
+
+      style="FONT-SIZE: 90pt; COLOR: #f0f0f0; FONT-FAMILY: 'Arial Black'">&nbsp;0000<BR>&nbsp;JUN</FONT> 
+
+      </DIV>
+
+      <TABLE border=0>
+
+        <TBODY>
+
+        <TR>
+
+          <TD bgColor=#000080 colSpan=7><FONT style="FONT-SIZE: 9pt" 
+
+            color=#ffffff size=2>¹«Àú<SELECT style="FONT-SIZE: 9pt" 
+
+            onchange=changeCld() name=SY> 
+
+              <SCRIPT language=JavaScript><!--
+
+            for(i=1900;i<2050;i++) document.write('<option>'+i)
+
+            //--></SCRIPT>
+
+            </SELECT>Äê<SELECT style="FONT-SIZE: 9pt" onchange=changeCld() 
+
+            name=SM> 
+
+              <SCRIPT language=JavaScript><!--
+
+            for(i=1;i<13;i++) document.write('<option>'+i)
+
+            //--></SCRIPT>
+
+            </SELECT>ÔÂ </FONT><FONT id=GZ face=±ê¿¬Ìå color=yellow 
+
+            size=3></FONT><BR></TD></TR>
+
+        <TR align=middle bgColor=#e0e0e0>
+
+          <TD width=60><FONT color=red>ÈÕ</FONT></TD>
+
+          <TD width=60>Ò»</TD>
+
+          <TD width=60>¶ş</TD>
+
+          <TD width=60>Èı</TD>
+
+          <TD width=60>ËÄ</TD>
+
+          <TD width=60>Îå</TD>
+
+          <TD width=60><FONT color=green>Áù</FONT></TD></TR>
+
+        <SCRIPT language=JavaScript><!--
+
+            var gNum
+
+            for(i=0;i<6;i++) {
+
+               document.write('<tr align=center>')
+
+               for(j=0;j<7;j++) {
+
+                  gNum = i*7+j
+
+                  document.write('<td id="GD' + gNum +'" onMouseOver="mOvr(' + gNum +')" onMouseOut="mOut()"><font id="SD' + gNum +'" size=5 face="Arial Black"')
+
+                  if(j == 0) document.write(' color=red')
+
+                  if(j == 6)
+
+                     if(i%2==1) document.write(' color=red')
+
+                        else document.write(' color=green')
+
+                  document.write(' TITLE=""> </font><br><font id="LD' + gNum + '" size=2 style="font-size:9pt"> </font></td>')
+
+               }
+
+               document.write('</tr>')
+
+            }
+
+            //--></SCRIPT>
+
+        </TBODY></TABLE></TD>
+
+    <TD vAlign=top align=middle width=40><BR><BR><BR><BR><BUTTON 
+
+      style="FONT-SIZE: 9pt" onClick="pushBtm('YU')">Äê¡ü</BUTTON><BR><BUTTON 
+
+      style="FONT-SIZE: 9pt" onClick="pushBtm('YD')">Äê¡ı</BUTTON> 
+
+      <P><BUTTON style="FONT-SIZE: 9pt" 
+
+      onclick="pushBtm('MU')">ÔÂ¡ü</BUTTON><BR><BUTTON style="FONT-SIZE: 9pt" 
+
+      onclick="pushBtm('MD')">ÔÂ¡ı</BUTTON> 
+
+      <P><BUTTON style="FONT-SIZE: 9pt" onClick="pushBtm('')">½ñÈÕ</BUTTON> 
+
+  </P></TD></TR></TBODY></TABLE></FORM>
+
+<P></P>
+
+<HR width="90%" color=#cccccc noShade SIZE=1>
+
+<FONT style="FONT-SIZE: 9pt" face=ARIAL size=2>ÑôÀúÖĞ<FONT 
+
+color=red>ºìÉ«</FONT>/<FONT color=green>ÂÌÉ«</FONT><FONT color=black>±íÊ¾½Ú¼ÙÈÕ£¬Å©ÀúÖĞ<FONT 
+
+color=green>ÂÌÉ«</FONT>±íÊ¾Îª24½ÚÆøÈÕ£¬<FONT color=red>ºìÉ«</FONT>±íÊ¾Îª´«Í³½ÚÈÕ£¬<FONT 
+
+color=blue>À¶É«</FONT>Ôò±íÊ¾Îª¹«ÖÚ½Ú¼ÙÈÕ<BR>
+
+<script type="text/javascript">
+
+<!--
+
+	initial()
+
+//-->
+
+</script>
+
+</CENTER>
+
+<br>
+
+<table align="center" border="0" cellpadding="3" cellspacing="0" width="700">
+
+<tr>
+
+<td align="center"><b><font color="#008000"></font></b></td>
+
+	
+
+
+
+</tr>
+
+</table>
+
+</BODY></HTML>
