@@ -1,47 +1,22 @@
+<% content_for :head do %>
+  <META http-equiv=Content-Type content="text/html; charset=utf-8"><TITLE>hao123万年历</TITLE>
+  <META content="hao123万年历" name=keywords>
+  <META content=All name=robots>
+  <META content="hao123万年历" name=description>
+  <meta http-equiv="x-ua-compatible" content="ie=7" />
+  <style type="text/css">
+    p {fONT-FAMILY: 宋体; FONT-SIZE: 9pt;line-height:12pt:color:#000000}
+    TD {fONT-FAMILY: 宋体,simsun; FONT-SIZE: 9pt}
+    a:link{ color:#000000; text-decoration:none}
+    a:visited{COLOR: #000000; TEXT-DECORATION: none}
+    a:active{color:green;text-decoration:none}
+    a:hover{color:red;text-decoration:underline}
+    button{width:39px;height:21px;padding:2px;}
+  </style>
 
-<HTML><HEAD><META http-equiv=Content-Type content="text/html; charset=utf-8"><TITLE>hao123万年历</TITLE>
+  <SCRIPT language=JavaScript>
 
-<META content="hao123万年历" name=keywords>
-
-<META content=All name=robots>
-
-<META content="hao123万年历" name=description>
-
-<meta http-equiv="x-ua-compatible" content="ie=7" />
-
-<style type="text/css">
-
-
-
-p {fONT-FAMILY: 宋体; FONT-SIZE: 9pt;line-height:12pt:color:#000000}
-
-
-
-TD {fONT-FAMILY: 宋体,simsun; FONT-SIZE: 9pt}
-
-    
-
-a:link{ color:#000000; text-decoration:none}
-
-a:visited{COLOR: #000000; TEXT-DECORATION: none}
-
-a:active{color:green;text-decoration:none}
-
-a:hover{color:red;text-decoration:underline}
-
-button{width:39px;height:21px;padding:2px;}
-
-</style>
-
-
-
-
-
-
-
-<SCRIPT language=JavaScript>
-
-<!--
+    <!--
 
 var blnSummerTime = false;
 
@@ -55,7 +30,7 @@ var blnSummerTime = false;
 
 var lunarInfo=new Array(
 
-0x04bd8,0x04ae0,0x0a570,0x054d5,0x0d260,0x0d950,0x16554,0x056a0,0x09ad0,0x055d2,
+  0x04bd8,0x04ae0,0x0a570,0x054d5,0x0d260,0x0d950,0x16554,0x056a0,0x09ad0,0x055d2,
 
 0x04ae0,0x0a5b6,0x0a4d0,0x0d250,0x1d255,0x0b540,0x0d6a0,0x0ada2,0x095b0,0x14977,
 
@@ -113,7 +88,7 @@ var monthName = new Array("JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP",
 
 var sFtv = new Array(
 
-"0101*元旦节",
+  "0101*元旦节",
 
 "0202 世界湿地日",
 
@@ -321,7 +296,7 @@ var sFtv = new Array(
 
 var lFtv = new Array(
 
-"0101*春节",
+  "0101*春节",
 
 "0102*初二",
 
@@ -351,9 +326,9 @@ var lFtv = new Array(
 
 var wFtv = new Array(
 
-"0150 世界麻风日", //一月的最后一个星期日（月倒数第一个星期日）
+  "0150 世界麻风日", //一月的最后一个星期日（月倒数第一个星期日）
 
-"0520 国际母亲节",
+  "0520 国际母亲节",
 
 "0530 全国助残日",
 
@@ -387,11 +362,11 @@ var wFtv = new Array(
 
 function lYearDays(y) {
 
-var i, sum = 348;
+  var i, sum = 348;
 
-for(i=0x8000; i>0x8; i>>=1) sum += (lunarInfo[y-1900] & i)? 1: 0;
+  for(i=0x8000; i>0x8; i>>=1) sum += (lunarInfo[y-1900] & i)? 1: 0;
 
-return(sum+leapDays(y));
+    return(sum+leapDays(y));
 
 }
 
@@ -401,9 +376,9 @@ return(sum+leapDays(y));
 
 function leapDays(y) {
 
-if(leapMonth(y))  return((lunarInfo[y-1900] & 0x10000)? 30: 29);
+  if(leapMonth(y))  return((lunarInfo[y-1900] & 0x10000)? 30: 29);
 
-else return(0);
+  else return(0);
 
 }
 
@@ -413,7 +388,7 @@ else return(0);
 
 function leapMonth(y) {
 
-return(lunarInfo[y-1900] & 0xf);
+  return(lunarInfo[y-1900] & 0xf);
 
 }
 
@@ -423,7 +398,7 @@ return(lunarInfo[y-1900] & 0xf);
 
 function monthDays(y,m) {
 
-return( (lunarInfo[y-1900] & (0x10000>>m))? 30: 29 );
+  return( (lunarInfo[y-1900] & (0x10000>>m))? 30: 29 );
 
 }
 
@@ -439,65 +414,65 @@ function Lunar(objDate) {
 
 
 
-var i, leap=0, temp=0;
+  var i, leap=0, temp=0;
 
-var offset   = (Date.UTC(objDate.getFullYear(),objDate.getMonth(),objDate.getDate()) - Date.UTC(1900,0,31))/86400000;
-
-
-
-for(i=1900; i<2050 && offset>0; i++) { temp=lYearDays(i); offset-=temp; }
+  var offset   = (Date.UTC(objDate.getFullYear(),objDate.getMonth(),objDate.getDate()) - Date.UTC(1900,0,31))/86400000;
 
 
 
-if(offset<0) { offset+=temp; i--; }
+  for(i=1900; i<2050 && offset>0; i++) { temp=lYearDays(i); offset-=temp; }
 
 
 
-this.year = i;
+    if(offset<0) { offset+=temp; i--; }
 
 
 
-leap = leapMonth(i); //闰哪个月
-
-this.isLeap = false;
+      this.year = i;
 
 
 
-for(i=1; i<13 && offset>0; i++) {
+  leap = leapMonth(i); //闰哪个月
 
-//闰月
-
-if(leap>0 && i==(leap+1) && this.isLeap==false)
-
-{ --i; this.isLeap = true; temp = leapDays(this.year); }
-
-else
-
-{ temp = monthDays(this.year, i); }
+  this.isLeap = false;
 
 
 
-//解除闰月
+  for(i=1; i<13 && offset>0; i++) {
 
-if(this.isLeap==true && i==(leap+1)) this.isLeap = false;
+    //闰月
+
+    if(leap>0 && i==(leap+1) && this.isLeap==false)
+
+      { --i; this.isLeap = true; temp = leapDays(this.year); }
+
+    else
+
+      { temp = monthDays(this.year, i); }
 
 
 
-offset -= temp;
+    //解除闰月
 
-}
+    if(this.isLeap==true && i==(leap+1)) this.isLeap = false;
+
+
+
+      offset -= temp;
+
+  }
 
 
 
 if(offset==0 && leap>0 && i==leap+1)
 
-if(this.isLeap)
+  if(this.isLeap)
 
-{ this.isLeap = false; }
+    { this.isLeap = false; }
 
 else
 
-{ this.isLeap = true; --i; }
+  { this.isLeap = true; --i; }
 
 
 
@@ -505,7 +480,7 @@ if(offset<0){ offset += temp; --i; }
 
 
 
-this.month = i;
+  this.month = i;
 
 this.day = offset + 1;
 
@@ -517,13 +492,13 @@ this.day = offset + 1;
 
 function solarDays(y,m) {
 
-if(m==1)
+  if(m==1)
 
-return(((y%4 == 0) && (y%100 != 0) || (y%400 == 0))? 29: 28);
+    return(((y%4 == 0) && (y%100 != 0) || (y%400 == 0))? 29: 28);
 
-else
+  else
 
-return(solarMonth[m]);
+    return(solarMonth[m]);
 
 }
 
@@ -531,7 +506,7 @@ return(solarMonth[m]);
 
 function cyclical(num) {
 
-return(Gan[num%10]+Zhi[num%12]);
+  return(Gan[num%10]+Zhi[num%12]);
 
 }
 
@@ -543,47 +518,47 @@ function calElement(sYear,sMonth,sDay,week,lYear,lMonth,lDay,isLeap,cYear,cMonth
 
 
 
-this.isToday    = false;
+  this.isToday    = false;
 
-//瓣句
+  //瓣句
 
-this.sYear      = sYear;   //公元年4位数字
+  this.sYear      = sYear;   //公元年4位数字
 
-this.sMonth     = sMonth;  //公元月数字
+  this.sMonth     = sMonth;  //公元月数字
 
-this.sDay       = sDay;    //公元日数字
+  this.sDay       = sDay;    //公元日数字
 
-this.week       = week;    //星期, 1个中文
+  this.week       = week;    //星期, 1个中文
 
-//农历
+  //农历
 
-this.lYear      = lYear;   //公元年4位数字
+  this.lYear      = lYear;   //公元年4位数字
 
-this.lMonth     = lMonth;  //农历月数字
+  this.lMonth     = lMonth;  //农历月数字
 
-this.lDay       = lDay;    //农历日数字
+  this.lDay       = lDay;    //农历日数字
 
-this.isLeap     = isLeap;  //是否为农历闰月?
+  this.isLeap     = isLeap;  //是否为农历闰月?
 
-//八字
+  //八字
 
-this.cYear      = cYear;   //年柱, 2个中文
+  this.cYear      = cYear;   //年柱, 2个中文
 
-this.cMonth     = cMonth;  //月柱, 2个中文
+  this.cMonth     = cMonth;  //月柱, 2个中文
 
-this.cDay       = cDay;    //日柱, 2个中文
-
-
-
-this.color      = '';
+  this.cDay       = cDay;    //日柱, 2个中文
 
 
 
-this.lunarFestival = ''; //农历节日
+  this.color      = '';
 
-this.solarFestival = ''; //公历节日
 
-this.solarTerms    = ''; //节气
+
+  this.lunarFestival = ''; //农历节日
+
+  this.solarFestival = ''; //公历节日
+
+  this.solarTerms    = ''; //节气
 
 }
 
@@ -593,9 +568,9 @@ this.solarTerms    = ''; //节气
 
 function sTerm(y,n) {
 
-var offDate = new Date( ( 31556925974.7*(y-1900) + sTermInfo[n]*60000  ) + Date.UTC(1900,0,6,2,5) );
+  var offDate = new Date( ( 31556925974.7*(y-1900) + sTermInfo[n]*60000  ) + Date.UTC(1900,0,6,2,5) );
 
-return(offDate.getUTCDate());
+  return(offDate.getUTCDate());
 
 }
 
@@ -641,51 +616,51 @@ function calendar(y,m) {
 
 
 
-var sDObj, lDObj, lY, lM, lD=1, lL, lX=0, tmp1, tmp2, tmp3;
+  var sDObj, lDObj, lY, lM, lD=1, lL, lX=0, tmp1, tmp2, tmp3;
 
-var cY, cM, cD; //年柱,月柱,日柱
+  var cY, cM, cD; //年柱,月柱,日柱
 
-var lDPOS = new Array(3);
+  var lDPOS = new Array(3);
 
-var n = 0;
+  var n = 0;
 
-var firstLM = 0;
-
-
-
-sDObj = new Date(y,m,1,0,0,0,0);    //当月一日日期
+  var firstLM = 0;
 
 
 
-this.length    = solarDays(y,m);    //公历当月天数
-
-this.firstWeek = sDObj.getDay();    //公历当月1日星期几
+  sDObj = new Date(y,m,1,0,0,0,0);    //当月一日日期
 
 
 
-////////年柱 1900年立春后为庚子年(60进制36)
+  this.length    = solarDays(y,m);    //公历当月天数
 
-if(m<2) cY=cyclical(y-1900+36-1);
+  this.firstWeek = sDObj.getDay();    //公历当月1日星期几
 
-else cY=cyclical(y-1900+36);
+
+
+  ////////年柱 1900年立春后为庚子年(60进制36)
+
+  if(m<2) cY=cyclical(y-1900+36-1);
+
+  else cY=cyclical(y-1900+36);
 
 var term2=sTerm(y,2); //立春日期
 
 
 
-////////月柱 1900年1月小寒以前为 丙子月(60进制12)
+  ////////月柱 1900年1月小寒以前为 丙子月(60进制12)
 
-var firstNode = sTerm(y,m*2) //返回当月「节」为几日开始
+  var firstNode = sTerm(y,m*2) //返回当月「节」为几日开始
 
-cM = cyclical((y-1900)*12+m+12);
+  cM = cyclical((y-1900)*12+m+12);
 
 
 
-//当月一日与 1900/1/1 相差天数
+  //当月一日与 1900/1/1 相差天数
 
-//1900/1/1与 1970/1/1 相差25567日, 1900/1/1 日柱为甲戌日(60进制10)
+  //1900/1/1与 1970/1/1 相差25567日, 1900/1/1 日柱为甲戌日(60进制10)
 
-var dayCyclical = Date.UTC(y,m,1,0,0,0,0)/86400000+25567+10;
+  var dayCyclical = Date.UTC(y,m,1,0,0,0,0)/86400000+25567+10;
 
 
 
@@ -693,53 +668,53 @@ for(var i=0;i<this.length;i++) {
 
 
 
-if(lD>lX) {
+  if(lD>lX) {
 
-sDObj = new Date(y,m,i+1);    //当月一日日期
+    sDObj = new Date(y,m,i+1);    //当月一日日期
 
-lDObj = new Lunar(sDObj);     //农历
+    lDObj = new Lunar(sDObj);     //农历
 
-lY    = lDObj.year;           //农历年
+    lY    = lDObj.year;           //农历年
 
-lM    = lDObj.month;          //农历月
+    lM    = lDObj.month;          //农历月
 
-lD    = lDObj.day;            //农历日
+    lD    = lDObj.day;            //农历日
 
-lL    = lDObj.isLeap;         //农历是否闰月
+    lL    = lDObj.isLeap;         //农历是否闰月
 
-lX    = lL? leapDays(lY): monthDays(lY,lM); //农历当月最后一天
-
-
-
-if(n==0) firstLM = lM;
-
-lDPOS[n++] = i-lD+1;
-
-}
+    lX    = lL? leapDays(lY): monthDays(lY,lM); //农历当月最后一天
 
 
 
-//依节气调整二月分的年柱, 以立春为界
+    if(n==0) firstLM = lM;
 
-if(m==1 && (i+1)==term2) cY=cyclical(y-1900+36);
+      lDPOS[n++] = i-lD+1;
 
-//依节气月柱, 以「节」为界
-
-if((i+1)==firstNode) cM = cyclical((y-1900)*12+m+13);
-
-//日柱
-
-cD = cyclical(dayCyclical+i);
+  }
 
 
 
-//sYear,sMonth,sDay,week,
+  //依节气调整二月分的年柱, 以立春为界
+
+  if(m==1 && (i+1)==term2) cY=cyclical(y-1900+36);
+
+    //依节气月柱, 以「节」为界
+
+  if((i+1)==firstNode) cM = cyclical((y-1900)*12+m+13);
+
+    //日柱
+
+  cD = cyclical(dayCyclical+i);
+
+
+
+  //sYear,sMonth,sDay,week,
 
 //lYear,lMonth,lDay,isLeap,
 
 //cYear,cMonth,cDay
 
-this[i] = new calElement(y, m+1, i+1, nStr1[(i+this.firstWeek)%7],
+  this[i] = new calElement(y, m+1, i+1, nStr1[(i+this.firstWeek)%7],
 
 lY, lM, lD++, lL,
 
@@ -763,19 +738,19 @@ if(m==3) this[tmp1].color = 'red'; //清明颜色
 
 
 
-//公历节日
+  //公历节日
 
 for(i in sFtv)
 
-if(sFtv[i].match(/^(\d{2})(\d{2})([\s\*])(.+)$/))
+  if(sFtv[i].match(/^(\d{2})(\d{2})([\s\*])(.+)$/))
 
-if(Number(RegExp.$1)==(m+1)) {
+    if(Number(RegExp.$1)==(m+1)) {
 
-this[Number(RegExp.$2)-1].solarFestival += RegExp.$4 + ' ';
+      this[Number(RegExp.$2)-1].solarFestival += RegExp.$4 + ' ';
 
-if(RegExp.$3=='*') this[Number(RegExp.$2)-1].color = 'red';
+      if(RegExp.$3=='*') this[Number(RegExp.$2)-1].color = 'red';
 
-}
+    }
 
 
 
@@ -783,29 +758,29 @@ if(RegExp.$3=='*') this[Number(RegExp.$2)-1].color = 'red';
 
 for(i in wFtv)
 
-if(wFtv[i].match(/^(\d{2})(\d)(\d)([\s\*])(.+)$/))
+  if(wFtv[i].match(/^(\d{2})(\d)(\d)([\s\*])(.+)$/))
 
-if(Number(RegExp.$1)==(m+1)) {
+    if(Number(RegExp.$1)==(m+1)) {
 
-tmp1=Number(RegExp.$2);
+      tmp1=Number(RegExp.$2);
 
-tmp2=Number(RegExp.$3);
+      tmp2=Number(RegExp.$3);
 
-if(tmp1<5)
+      if(tmp1<5)
 
-this[((this.firstWeek>tmp2)?7:0) + 7*(tmp1-1) + tmp2 - this.firstWeek].solarFestival += RegExp.$5 + ' ';
+        this[((this.firstWeek>tmp2)?7:0) + 7*(tmp1-1) + tmp2 - this.firstWeek].solarFestival += RegExp.$5 + ' ';
 
-else {
+  else {
 
-tmp1 -= 5;
+    tmp1 -= 5;
 
-tmp3 = (this.firstWeek+this.length-1)%7; //当月最后一天星期?
+    tmp3 = (this.firstWeek+this.length-1)%7; //当月最后一天星期?
 
-this[this.length - tmp3 - 7*tmp1 + tmp2 - (tmp2>tmp3?7:0) - 1 ].solarFestival += RegExp.$5 + ' ';
+    this[this.length - tmp3 - 7*tmp1 + tmp2 - (tmp2>tmp3?7:0) - 1 ].solarFestival += RegExp.$5 + ' ';
 
-}
+  }
 
-}
+    }
 
 
 
@@ -813,27 +788,27 @@ this[this.length - tmp3 - 7*tmp1 + tmp2 - (tmp2>tmp3?7:0) - 1 ].solarFestival +=
 
 for(i in lFtv)
 
-if(lFtv[i].match(/^(\d{2})(.{2})([\s\*])(.+)$/)) {
+  if(lFtv[i].match(/^(\d{2})(.{2})([\s\*])(.+)$/)) {
 
-tmp1=Number(RegExp.$1)-firstLM;
+    tmp1=Number(RegExp.$1)-firstLM;
 
-if(tmp1==-11) tmp1=1;
+    if(tmp1==-11) tmp1=1;
 
-if(tmp1 >=0 && tmp1<n) {
+      if(tmp1 >=0 && tmp1<n) {
 
-tmp2 = lDPOS[tmp1] + Number(RegExp.$2) -1;
+        tmp2 = lDPOS[tmp1] + Number(RegExp.$2) -1;
 
-if( tmp2 >= 0 && tmp2<this.length && this[tmp2].isLeap!=true) {
+        if( tmp2 >= 0 && tmp2<this.length && this[tmp2].isLeap!=true) {
 
-this[tmp2].lunarFestival += RegExp.$4 + ' ';
+          this[tmp2].lunarFestival += RegExp.$4 + ' ';
 
-if(RegExp.$3=='*') this[tmp2].color = 'red';
+          if(RegExp.$3=='*') this[tmp2].color = 'red';
 
-}
+        }
 
-}
+      }
 
-}
+  }
 
 
 
@@ -843,11 +818,11 @@ if(RegExp.$3=='*') this[tmp2].color = 'red';
 
 if(m==2 || m==3) {
 
-var estDay = new easter(y);
+  var estDay = new easter(y);
 
-if(m == estDay.m)
+  if(m == estDay.m)
 
-this[estDay.d-1].solarFestival = this[estDay.d-1].solarFestival+' 复活节 Easter Sunday';
+    this[estDay.d-1].solarFestival = this[estDay.d-1].solarFestival+' 复活节 Easter Sunday';
 
 }
 
@@ -859,11 +834,11 @@ if(m==2) this[20].solarFestival = this[20].solarFestival+unescape('%20%u6D35%u8C
 
 
 
-//黑色星期五
+  //黑色星期五
 
 if((this.firstWeek+12)%7==5)
 
-this[12].solarFestival += '黑色星期五';
+  this[12].solarFestival += '黑色星期五';
 
 
 
@@ -881,35 +856,35 @@ function easter(y) {
 
 
 
-var term2=sTerm(y,5); //取得春分日期
+  var term2=sTerm(y,5); //取得春分日期
 
-var dayTerm2 = new Date(Date.UTC(y,2,term2,0,0,0,0)); //取得春分的公历日期控件(春分一定出现在3月)
+  var dayTerm2 = new Date(Date.UTC(y,2,term2,0,0,0,0)); //取得春分的公历日期控件(春分一定出现在3月)
 
-var lDayTerm2 = new Lunar(dayTerm2); //取得取得春分农历
-
-
-
-if(lDayTerm2.day<15) //取得下个月圆的相差天数
-
-var lMlen= 15-lDayTerm2.day;
-
-else
-
-var lMlen= (lDayTerm2.isLeap? leapDays(y): monthDays(y,lDayTerm2.month)) - lDayTerm2.day + 15;
+  var lDayTerm2 = new Lunar(dayTerm2); //取得取得春分农历
 
 
 
-//一天等于 1000*60*60*24 = 86400000 毫秒
+  if(lDayTerm2.day<15) //取得下个月圆的相差天数
 
-var l15 = new Date(dayTerm2.getTime() + 86400000*lMlen ); //求出第一次月圆为公历几日
+    var lMlen= 15-lDayTerm2.day;
 
-var dayEaster = new Date(l15.getTime() + 86400000*( 7-l15.getUTCDay() ) ); //求出下个周日
+  else
+
+    var lMlen= (lDayTerm2.isLeap? leapDays(y): monthDays(y,lDayTerm2.month)) - lDayTerm2.day + 15;
 
 
 
-this.m = dayEaster.getUTCMonth();
+  //一天等于 1000*60*60*24 = 86400000 毫秒
 
-this.d = dayEaster.getUTCDate();
+  var l15 = new Date(dayTerm2.getTime() + 86400000*lMlen ); //求出第一次月圆为公历几日
+
+  var dayEaster = new Date(l15.getTime() + 86400000*( 7-l15.getUTCDay() ) ); //求出下个周日
+
+
+
+  this.m = dayEaster.getUTCMonth();
+
+  this.d = dayEaster.getUTCDate();
 
 
 
@@ -921,37 +896,37 @@ this.d = dayEaster.getUTCDate();
 
 function cDay(d){
 
-var s;
+  var s;
 
 
 
-switch (d) {
+  switch (d) {
 
-case 10:
+    case 10:
 
-s = '初十'; break;
+      s = '初十'; break;
 
-case 20:
+    case 20:
 
-s = '二十'; break;
+      s = '二十'; break;
 
-break;
+    break;
 
 case 30:
 
-s = '三十'; break;
+  s = '三十'; break;
 
-break;
+    break;
 
 default :
 
-s = nStr2[Math.floor(d/10)];
+  s = nStr2[Math.floor(d/10)];
 
-s += nStr1[d%10];
+    s += nStr1[d%10];
 
-}
+  }
 
-return(s);
+  return(s);
 
 }
 
@@ -967,135 +942,135 @@ var cld;
 
 function drawCld(SY,SM) {
 
-var i,sD,s,size;
+  var i,sD,s,size;
 
-cld = new calendar(SY,SM);
-
-
-
-if(SY>1874 && SY<1909) yDisplay = '光绪' + (((SY-1874)==1)?'元':SY-1874);
-
-if(SY>1908 && SY<1912) yDisplay = '宣统' + (((SY-1908)==1)?'元':SY-1908);
+  cld = new calendar(SY,SM);
 
 
 
-if(SY>1911) yDisplay = '建国' + (((SY-1949)==1)?'元':SY-1949);
+  if(SY>1874 && SY<1909) yDisplay = '光绪' + (((SY-1874)==1)?'元':SY-1874);
+
+    if(SY>1908 && SY<1912) yDisplay = '宣统' + (((SY-1908)==1)?'元':SY-1908);
 
 
 
-GZ.innerHTML = yDisplay +'年 农历 ' + cyclical(SY-1900+36) + '年 【'+Animals[(SY-4)%12]+'年】';
+      if(SY>1911) yDisplay = '建国' + (((SY-1949)==1)?'元':SY-1949);
 
 
 
-YMBG.innerHTML = "&nbsp;" + SY + "<BR>&nbsp;" + monthName[SM];
+        GZ.innerHTML = yDisplay +'年 农历 ' + cyclical(SY-1900+36) + '年 【'+Animals[(SY-4)%12]+'年】';
 
 
 
-for(i=0;i<42;i++) {
+  YMBG.innerHTML = "&nbsp;" + SY + "<BR>&nbsp;" + monthName[SM];
 
 
 
-sObj=eval('SD'+ i);
-
-lObj=eval('LD'+ i);
+  for(i=0;i<42;i++) {
 
 
 
-sObj.className = '';
+    sObj=eval('SD'+ i);
+
+    lObj=eval('LD'+ i);
 
 
 
-sD = i - cld.firstWeek;
+    sObj.className = '';
 
 
 
-if(sD>-1 && sD<cld.length) { //日期内
-
-sObj.innerHTML = sD+1;
+    sD = i - cld.firstWeek;
 
 
 
-if(cld[sD].isToday) sObj.className = 'todyaColor'; //今日颜色
+    if(sD>-1 && sD<cld.length) { //日期内
+
+      sObj.innerHTML = sD+1;
 
 
 
-sObj.style.color = cld[sD].color; //法定假日颜色
+      if(cld[sD].isToday) sObj.className = 'todyaColor'; //今日颜色
 
 
 
-if(cld[sD].lDay==1) //显示农历月
+        sObj.style.color = cld[sD].color; //法定假日颜色
 
-lObj.innerHTML = '<b>'+(cld[sD].isLeap?'闰':'') + cld[sD].lMonth + '月' + (monthDays(cld[sD].lYear,cld[sD].lMonth)==29?'小':'大')+'</b>';
 
-else //显示农历日
+
+      if(cld[sD].lDay==1) //显示农历月
+
+        lObj.innerHTML = '<b>'+(cld[sD].isLeap?'闰':'') + cld[sD].lMonth + '月' + (monthDays(cld[sD].lYear,cld[sD].lMonth)==29?'小':'大')+'</b>';
+
+  else //显示农历日
 
 lObj.innerHTML = cDay(cld[sD].lDay);
 
 
 
-s=cld[sD].lunarFestival;
+      s=cld[sD].lunarFestival;
 
-if(s.length>0) { //农历节日
+      if(s.length>0) { //农历节日
 
-if(s.length>6) s = s.substr(0, 4)+'..';
+        if(s.length>6) s = s.substr(0, 4)+'..';
 
-s = s.fontcolor('red');
+          s = s.fontcolor('red');
 
-}
+      }
 
-else { //公历节日
+      else { //公历节日
 
 s=cld[sD].solarFestival;
 
-if(s.length>0) {
+        if(s.length>0) {
 
-size = (s.charCodeAt(0)>0 && s.charCodeAt(0)<128)?8:4;
+          size = (s.charCodeAt(0)>0 && s.charCodeAt(0)<128)?8:4;
 
-if(s.length>size+2) s = s.substr(0, size)+'..';
+          if(s.length>size+2) s = s.substr(0, size)+'..';
 
-s=(s=='黑色星期五')?s.fontcolor('black'):s.fontcolor('blue');
+            s=(s=='黑色星期五')?s.fontcolor('black'):s.fontcolor('blue');
 
-}
+        }
 
-else { //廿四节气
+        else { //廿四节气
 
 s=cld[sD].solarTerms;
 
-if(s.length>0) s = s.fontcolor('limegreen');
+          if(s.length>0) s = s.fontcolor('limegreen');
 
-}
+        }
 
-}
+      }
 
 
 
 if(cld[sD].solarTerms=='清明') s = '清明节'.fontcolor('red');
 
-if(cld[sD].solarTerms=='芒种') s = '芒种节'.fontcolor('red');
+  if(cld[sD].solarTerms=='芒种') s = '芒种节'.fontcolor('red');
 
-if(cld[sD].solarTerms=='夏至') s = '夏至节'.fontcolor('red');
+    if(cld[sD].solarTerms=='夏至') s = '夏至节'.fontcolor('red');
 
-if(cld[sD].solarTerms=='冬至') s = '冬至节'.fontcolor('red');
-
-
+      if(cld[sD].solarTerms=='冬至') s = '冬至节'.fontcolor('red');
 
 
 
 
 
-if(s.length>0) lObj.innerHTML = s;
+
+
+        if(s.length>0) lObj.innerHTML = s;
 
 
 
 }
 
-else { //非日期
+        else { //非日期
 
 sObj.innerHTML = '';
 
-lObj.innerHTML = '';
+          lObj.innerHTML = '';
 
-}
+        }
 
 }
 
@@ -1107,13 +1082,13 @@ lObj.innerHTML = '';
 
 function changeCld() {
 
-var y,m;
+  var y,m;
 
-y=CLD.SY.selectedIndex+1900;
+  y=CLD.SY.selectedIndex+1900;
 
-m=CLD.SM.selectedIndex;
+  m=CLD.SM.selectedIndex;
 
-drawCld(y,m);
+  drawCld(y,m);
 
 }
 
@@ -1121,59 +1096,59 @@ drawCld(y,m);
 
 function pushBtm(K) {
 
-switch (K){
+  switch (K){
 
-case 'YU' :
+    case 'YU' :
 
-if(CLD.SY.selectedIndex>0) CLD.SY.selectedIndex--;
+      if(CLD.SY.selectedIndex>0) CLD.SY.selectedIndex--;
 
-break;
+        break;
 
 case 'YD' :
 
-if(CLD.SY.selectedIndex<150) CLD.SY.selectedIndex++;
+  if(CLD.SY.selectedIndex<150) CLD.SY.selectedIndex++;
 
-break;
+    break;
 
 case 'MU' :
 
-if(CLD.SM.selectedIndex>0) {
+  if(CLD.SM.selectedIndex>0) {
 
-CLD.SM.selectedIndex--;
+    CLD.SM.selectedIndex--;
 
-}
+  }
 
-else {
+  else {
 
-CLD.SM.selectedIndex=11;
+    CLD.SM.selectedIndex=11;
 
-if(CLD.SY.selectedIndex>0) CLD.SY.selectedIndex--;
+    if(CLD.SY.selectedIndex>0) CLD.SY.selectedIndex--;
 
-}
+  }
 
-break;
+    break;
 
 case 'MD' :
 
-if(CLD.SM.selectedIndex<11) {
+  if(CLD.SM.selectedIndex<11) {
 
-CLD.SM.selectedIndex++;
+    CLD.SM.selectedIndex++;
 
-}
+  }
 
-else {
+  else {
 
-CLD.SM.selectedIndex=0;
+    CLD.SM.selectedIndex=0;
 
-if(CLD.SY.selectedIndex<150) CLD.SY.selectedIndex++;
+    if(CLD.SY.selectedIndex<150) CLD.SY.selectedIndex++;
 
-}
+  }
 
-break;
+    break;
 
 default :
 
-CLD.SY.selectedIndex=tY-1900;
+  CLD.SY.selectedIndex=tY-1900;
 
 CLD.SM.selectedIndex=tM;
 
@@ -1227,15 +1202,15 @@ document.onmousemove = mEvn;
 
 function mOvr(v) {
 
-var s,festival;
+  var s,festival;
 
-var sObj=eval('SD'+ v);
+  var sObj=eval('SD'+ v);
 
-var d=sObj.innerHTML-1;
+  var d=sObj.innerHTML-1;
 
 
 
-//sYear,sMonth,sDay,week,
+  //sYear,sMonth,sDay,week,
 
 //lYear,lMonth,lDay,isLeap,
 
@@ -1243,21 +1218,21 @@ var d=sObj.innerHTML-1;
 
 
 
-if(sObj.innerHTML!='') {
+  if(sObj.innerHTML!='') {
 
 
 
-sObj.style.cursor = 's-resize';
+    sObj.style.cursor = 's-resize';
 
 
 
-if(cld[d].solarTerms == '' && cld[d].solarFestival == '' && cld[d].lunarFestival == '')
+    if(cld[d].solarTerms == '' && cld[d].solarFestival == '' && cld[d].lunarFestival == '')
 
-festival = '';
+      festival = '';
 
-else
+  else
 
-festival = '<TABLE WIDTH=100% BORDER=0 CELLPADDING=2 CELLSPACING=0 BGCOLOR="#CCFFCC"><TR><TD>'+
+    festival = '<TABLE WIDTH=100% BORDER=0 CELLPADDING=2 CELLSPACING=0 BGCOLOR="#CCFFCC"><TR><TD>'+
 
 '<FONT COLOR="#000000" STYLE="font-size:9pt;">'+cld[d].solarTerms + ' ' + cld[d].solarFestival + ' ' + cld[d].lunarFestival+'</FONT></TD>'+
 
@@ -1265,7 +1240,7 @@ festival = '<TABLE WIDTH=100% BORDER=0 CELLPADDING=2 CELLSPACING=0 BGCOLOR="#CCF
 
 
 
-s= '<TABLE WIDTH="130" BORDER=0 CELLPADDING="2" CELLSPACING=0 BGCOLOR="#000066" style="filter:Alpha(opacity=80)"><TR><TD>' +
+    s= '<TABLE WIDTH="130" BORDER=0 CELLPADDING="2" CELLSPACING=0 BGCOLOR="#000066" style="filter:Alpha(opacity=80)"><TR><TD>' +
 
 '<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0><TR><TD ALIGN="right"><FONT COLOR="#ffffff" STYLE="font-size:9pt;">'+
 
@@ -1279,21 +1254,21 @@ cld[d].sYear+' 年 '+cld[d].sMonth+' 月 '+cld[d].sDay+' 日<br>星期'+cld[d].w
 
 
 
-document.all["detail"].innerHTML = s;
+    document.all["detail"].innerHTML = s;
 
 
 
-if (snow == 0) {
+    if (snow == 0) {
 
-dStyle.left = x+offsetx-(width/2);
+      dStyle.left = x+offsetx-(width/2);
 
-dStyle.top = y+offsety;
+      dStyle.top = y+offsety;
 
-dStyle.visibility = "visible";
+      dStyle.visibility = "visible";
 
-snow = 1;
+      snow = 1;
 
-}
+    }
 
 }
 
@@ -1305,11 +1280,11 @@ snow = 1;
 
 function mOut() {
 
-if ( cnt >= 1 ) { sw = 0; }
+  if ( cnt >= 1 ) { sw = 0; }
 
-if ( sw == 0 ) { snow = 0; if(dStyle)dStyle.visibility = "hidden";}
+    if ( sw == 0 ) { snow = 0; if(dStyle)dStyle.visibility = "hidden";}
 
-else cnt++;
+  else cnt++;
 
 }
 
@@ -1319,23 +1294,23 @@ else cnt++;
 
 function mEvn(e) {
 
-e= e||window.event;
+  e= e||window.event;
 
-x=e.clientX;
+  x=e.clientX;
 
-y=e.clientY;
+  y=e.clientY;
 
-if (document.body.scrollLeft)
+  if (document.body.scrollLeft)
 
-{x=event.x+document.body.scrollLeft; y=event.y+document.body.scrollTop;}
+    {x=event.x+document.body.scrollLeft; y=event.y+document.body.scrollTop;}
 
-if (snow){
+  if (snow){
 
-dStyle.left = x+offsetx-(width/2);
+    dStyle.left = x+offsetx-(width/2);
 
-dStyle.top = y+offsety;
+    dStyle.top = y+offsety;
 
-}
+  }
 
 }
 
@@ -1349,7 +1324,7 @@ dStyle.top = y+offsety;
 
 function changeTZ() {
 
-   CITY.innerHTML = CLD.TZ.value.substr(6)
+  CITY.innerHTML = CLD.TZ.value.substr(6)
 
    setCookie("TZ",CLD.TZ.selectedIndex)
 
@@ -1361,7 +1336,7 @@ function changeTZ() {
 
 function tick() {
 
-   var today
+  var today
 
    today = new Date()
 
@@ -1379,13 +1354,13 @@ function tick() {
 
 function setCookie(name, value) {
 
-	var today = new Date()
+  var today = new Date()
 
-	var expires = new Date()
+  var expires = new Date()
 
-	expires.setTime(today.getTime() + 1000*60*60*24*365)
+  expires.setTime(today.getTime() + 1000*60*60*24*365)
 
-	document.cookie = name + "=" + escape(value)	+ "; expires=" + expires.toGMTString()
+  document.cookie = name + "=" + escape(value)	+ "; expires=" + expires.toGMTString()
 
 }
 
@@ -1393,25 +1368,25 @@ function setCookie(name, value) {
 
 function getCookie(Name) {
 
-   var search = Name + "="
+  var search = Name + "="
 
    if(document.cookie.length > 0) {
 
-      offset = document.cookie.indexOf(search)
+     offset = document.cookie.indexOf(search)
 
       if(offset != -1) {
 
-         offset += search.length
+        offset += search.length
 
          end = document.cookie.indexOf(";", offset)
 
          if(end == -1) end = document.cookie.length
 
-         return unescape(document.cookie.substring(offset, end))
+           return unescape(document.cookie.substring(offset, end))
 
       }
 
-      else return ""
+         else return ""
 
    }
 
@@ -1421,7 +1396,7 @@ function getCookie(Name) {
 
 function getCnDayString (dtmDay) {
 
-	return dtmDay.getFullYear()+"年"+(dtmDay.getMonth()+1)+"月"+dtmDay.getDate()+"日 "+dtmDay.getHours()+":"+((dtmDay.getMinutes().toString().length==1)?"0":"")+dtmDay.getMinutes()+":"+((dtmDay.getSeconds().toString().length==1)?"0":"")+dtmDay.getSeconds();
+  return dtmDay.getFullYear()+"年"+(dtmDay.getMonth()+1)+"月"+dtmDay.getDate()+"日 "+dtmDay.getHours()+":"+((dtmDay.getMinutes().toString().length==1)?"0":"")+dtmDay.getMinutes()+":"+((dtmDay.getSeconds().toString().length==1)?"0":"")+dtmDay.getSeconds();
 
 }
 
@@ -1429,7 +1404,7 @@ function getCnDayString (dtmDay) {
 
 function getEnDayString (dtmDay) {
 
-	return dtmDay.getFullYear()+"-"+(dtmDay.getMonth()+1)+"-"+dtmDay.getDate()+" "+dtmDay.getHours()+":"+((dtmDay.getMinutes().toString().length==1)?"0":"")+dtmDay.getMinutes()+":"+((dtmDay.getSeconds().toString().length==1)?"0":"")+dtmDay.getSeconds();
+  return dtmDay.getFullYear()+"-"+(dtmDay.getMonth()+1)+"-"+dtmDay.getDate()+" "+dtmDay.getHours()+":"+((dtmDay.getMinutes().toString().length==1)?"0":"")+dtmDay.getMinutes()+":"+((dtmDay.getSeconds().toString().length==1)?"0":"")+dtmDay.getSeconds();
 
 }
 
@@ -1437,57 +1412,57 @@ function getEnDayString (dtmDay) {
 
 function TimeAdd (UTC,T) {
 
-	var PlusMinus, y;
+  var PlusMinus, y;
 
-	if (T.charAt(0)=="-") {
+  if (T.charAt(0)=="-") {
 
-		PlusMinus = -1;
+    PlusMinus = -1;
 
-	}
+  }
 
-	else {
+  else {
 
-		PlusMinus = 1
+    PlusMinus = 1
 
-	}
+  }
 
    //alert(UTC)
 
-	//UTC=UTC.slice(4,UTC.length-4);
+  //UTC=UTC.slice(4,UTC.length-4);
 
-	//alert(UTC)
+  //alert(UTC)
 
-	y=UTC.getFullYear();
-
-
-
-	UTC.setMinutes(UTC.getMinutes()-(-T.slice(1,3)*60-T.slice(3,5))*PlusMinus);
-
-//alert(UTC)
-
-	//美国国会于2005年通过扩大日光节约时间法案，将原来开始时间从4月的第一个星期日，提早到3月的第二个星期日；结束时间则从10月的最后一个星期日，延长到11月的第一个星期日。
-
-	var dtmDaylightSavingBegin,dtmDaylightSavingEnd;
-
-	dtmDaylightSavingBegin = new Date(y,3,0);
-
-	dtmDaylightSavingBegin.setDate(dtmDaylightSavingBegin.getDate()+(7-dtmDaylightSavingBegin.getDay())%7+7);
+  y=UTC.getFullYear();
 
 
 
-	dtmDaylightSavingEnd = new Date(y,10,0);
+  UTC.setMinutes(UTC.getMinutes()-(-T.slice(1,3)*60-T.slice(3,5))*PlusMinus);
 
-	dtmDaylightSavingEnd.setDate(dtmDaylightSavingEnd.getDate()+(7-dtmDaylightSavingEnd.getDay())%7);
+  //alert(UTC)
+
+  //美国国会于2005年通过扩大日光节约时间法案，将原来开始时间从4月的第一个星期日，提早到3月的第二个星期日；结束时间则从10月的最后一个星期日，延长到11月的第一个星期日。
+
+  var dtmDaylightSavingBegin,dtmDaylightSavingEnd;
+
+  dtmDaylightSavingBegin = new Date(y,3,0);
+
+  dtmDaylightSavingBegin.setDate(dtmDaylightSavingBegin.getDate()+(7-dtmDaylightSavingBegin.getDay())%7+7);
 
 
 
-	if (T.slice(5,6)=="*" && UTC>=dtmDaylightSavingBegin && UTC<=dtmDaylightSavingEnd) {
+  dtmDaylightSavingEnd = new Date(y,10,0);
 
-		UTC.setHours(UTC.getHours()+1);
+  dtmDaylightSavingEnd.setDate(dtmDaylightSavingEnd.getDate()+(7-dtmDaylightSavingEnd.getDay())%7);
 
-		blnSummerTime = true;
 
-	}
+
+  if (T.slice(5,6)=="*" && UTC>=dtmDaylightSavingBegin && UTC<=dtmDaylightSavingEnd) {
+
+    UTC.setHours(UTC.getHours()+1);
+
+    blnSummerTime = true;
+
+  }
 
 
 
@@ -1501,27 +1476,27 @@ return UTC;
 
 function initial() {
 
-	if (navigator.userAgent.indexOf('MSIE')<0) {
+  if (navigator.userAgent.indexOf('MSIE')<0) {
 
-		document.getElementById("worldmap").innerHTML="&#xf0fb";
+    document.getElementById("worldmap").innerHTML="&#xf0fb";
 
-	}
+  }
 
-	dStyle = detail.style;
+  dStyle = detail.style;
 
-	CLD.SY.selectedIndex=tY-1900;
+  CLD.SY.selectedIndex=tY-1900;
 
-	CLD.SM.selectedIndex=tM;
+  CLD.SM.selectedIndex=tM;
 
-	drawCld(tY,tM);
+  drawCld(tY,tM);
 
-	pushBtm('');
+  pushBtm('');
 
-	CLD.TZ.selectedIndex=getCookie("TZ");
+  CLD.TZ.selectedIndex=getCookie("TZ");
 
-	changeTZ();
+  changeTZ();
 
-	tick();
+  tick();
 
 }
 
@@ -1535,7 +1510,7 @@ function initial() {
 
 <STYLE>.todyaColor {
 
-	BACKGROUND-COLOR: aqua
+  BACKGROUND-COLOR: aqua
 
 }
 
@@ -1543,29 +1518,31 @@ function initial() {
 
 
 
-<META content="MSHTML 6.00.2800.1505" name=GENERATOR></HEAD>
-
-<BODY leftMargin=0 topMargin=0>
+<META content="MSHTML 6.00.2800.1505" name=GENERATOR>
 
 
+<% end %>
 
-<SCRIPT language=JavaScript>
+<% content_for :body do %>
+
+
+  <SCRIPT language=JavaScript>
 
 
 
-lck=0;
+    lck=0;
 
 function r(hval)
 
 {
 
-if ( lck == 0 )
+  if ( lck == 0 )
 
-{
+    {
 
-document.bgColor=hval;
+      document.bgColor=hval;
 
-}
+    }
 
 }
 
@@ -1576,174 +1553,174 @@ document.bgColor=hval;
 <DIV id=detail style="POSITION: absolute"></DIV>
 
 <CENTER>
-<br><br>
-<FORM name=CLD onSubmit="return false">
+  <br><br>
+  <FORM name=CLD onSubmit="return false">
 
-<TABLE>
+    <TABLE>
 
-  <TBODY>
-
-  <TR>
-
-    <TD vAlign=top align=middle><BR><FONT style="FONT-SIZE: 9pt" 
-
-      size=2>本机时间:</FONT><BR><FONT id=Clock face=Arial color=#000080 size=4 
-
-      align="center"></FONT>
-
-      <P><!--时区 *表示自动调整为日光节约时间--><FONT style="FONT-SIZE: 9pt" size=2><SELECT 
-
-      style="FONT-SIZE: 9pt" onchange=changeTZ() name=TZ> <OPTION 
-
-        value="-1200 安尼威土克、瓜甲兰" selected>国际换日线<OPTION 
-
-        value="-1100 中途岛、萨摩亚群岛">萨摩亚<OPTION value="-1000 夏威夷">夏威夷<OPTION 
-
-        value=-0900*阿拉斯加>阿拉斯加<OPTION value=-0800*太平洋时间(美加)、提亚纳>太平洋<OPTION 
-
-        value=-0700*亚历桑那>美国山区<OPTION value=-0700*山区时间(美加)>美加山区<OPTION 
-
-        value=-0600*萨克其万(加拿大)>加拿大中部<OPTION value=-0600*墨西哥市、塔克西卡帕>墨西哥<OPTION 
-
-        value=-0600*中部时间(美加)>美加中部<OPTION value=-0500*波哥大、里玛>南美洲太平洋<OPTION 
-
-        value=-0500*东部时间(美加)>美加东部<OPTION value=-0500*印第安纳(东部)>美东<OPTION 
-
-        value=-0400*加拉卡斯、拉帕兹>南美洲西部<OPTION value="-0400*大西洋时间 加拿大)">大西洋<OPTION 
-
-        value="-0330 新岛(加拿大东岸)">纽芬兰<OPTION value="-0300 波西尼亚">东南美洲<OPTION 
-
-        value="-0300 布鲁诺斯爱丽斯、乔治城">南美洲东部<OPTION value=-0200*大西洋中部>大西洋中部<OPTION 
-
-        value=-0100*亚速尔群岛、维德角群岛>亚速尔<OPTION 
-
-        value="+0000 格林威治时间、都柏林、爱丁堡、伦敦">英国夏令<OPTION 
-
-        value="+0000 莫洛维亚(赖比瑞亚)、卡萨布兰卡">格林威治标准<OPTION 
-
-        value="+0100 巴黎、马德里">罗马<OPTION value="+0100 布拉格, 华沙, 布达佩斯">中欧<OPTION 
-
-        value="+0100 柏林、斯德哥尔摩、罗马、伯恩、布鲁赛尔、维也纳">西欧<OPTION 
-
-        value="+0200 以色列">以色列<OPTION value=+0200*东欧>东欧<OPTION 
-
-        value=+0200*开罗>埃及<OPTION value=+0200*雅典、赫尔辛基、伊斯坦堡>GFT<OPTION 
-
-        value=+0200*赫拉雷、皮托里>南非<OPTION 
-
-        value=+0300*巴格达、科威特、奈洛比(肯亚)、里雅德(沙乌地)>沙乌地阿拉伯<OPTION 
-
-        value=+0300*莫斯科、圣彼得堡、贺占、窝瓦格瑞德>俄罗斯<OPTION value=+0330*德黑兰>伊朗<OPTION 
-
-        value=+0400*阿布达比(东阿拉伯)、莫斯凯、塔布理斯(乔治亚共和)>阿拉伯<OPTION 
-
-        value=+0430*喀布尔>阿富汗<OPTION value="+0500 伊斯兰马巴德、克洛奇、伊卡特林堡、塔须肯">西亚<OPTION 
-
-        value="+0530 孟买、加尔各答、马垂斯、新德里、可伦坡">印度<OPTION 
-
-        value="+0600 阿马提、达卡">中亚<OPTION value="+0700 曼谷、亚加达、胡志明市">曼谷<OPTION 
-
-        value="+0800 北京、重庆、黑龙江">中国<OPTION value="+0800 台湾、香港、新加坡">台北<OPTION 
-
-        value="+0900 东京、大阪、扎幌、汉城、亚库兹(东西伯利亚)">东京<OPTION 
-
-        value="+0930 达尔文">澳洲中部<OPTION value="+1000 布里斯本、墨尔本、席德尼">席德尼<OPTION 
-
-        value="+1000 霍巴特">塔斯梅尼亚<OPTION value="+1000 关岛、莫斯比港、海  威">西太平洋<OPTION 
-
-        value=+1100*马哥大、所罗门群岛、新卡伦多尼亚>太平洋中部<OPTION 
-
-        value="+1200 威灵顿、奥克兰">纽西兰<OPTION 
-
-      value="+1200 斐济、肯加塔、马歇尔群岛">斐济</OPTION></SELECT>时间 </FONT><BR><FONT 
-
-      id=Clock2 face=Arial color=#000080 size=4 align="center"></FONT><BR><FONT 
-
-      style="FONT-SIZE: 120pt; COLOR: green; FONT-FAMILY:Webdings" id="worldmap">&ucirc;</FONT><BR><FONT 
-
-      id=CITY 
-
-      style="FONT-SIZE: 9pt; WIDTH: 150px; COLOR: blue; FONT-FAMILY: '新细明体'"></FONT></P>
-
-      </TD>
-
-    <TD align=middle>
-
-      <DIV style="Z-INDEX: -1; POSITION: absolute; TOP: 30px"><FONT id=YMBG 
-
-      style="FONT-SIZE: 90pt; COLOR: #f0f0f0; FONT-FAMILY: 'Arial Black'">&nbsp;0000<BR>&nbsp;JUN</FONT> 
-
-      </DIV>
-
-      <TABLE border=0>
-
-        <TBODY>
+      <TBODY>
 
         <TR>
 
-          <TD bgColor=#000080 colSpan=7><FONT style="FONT-SIZE: 9pt" 
+          <TD vAlign=top align=middle><BR><FONT style="FONT-SIZE: 9pt" 
 
-            color=#ffffff size=2>公历<SELECT style="FONT-SIZE: 9pt" 
+              size=2>本机时间:</FONT><BR><FONT id=Clock face=Arial color=#000080 size=4 
 
-            onchange=changeCld() name=SY> 
+              align="center"></FONT>
 
-              <SCRIPT language=JavaScript><!--
+            <P><!--时区 *表示自动调整为日光节约时间--><FONT style="FONT-SIZE: 9pt" size=2><SELECT 
 
-            for(i=1900;i<2050;i++) document.write('<option>'+i)
+                  style="FONT-SIZE: 9pt" onchange=changeTZ() name=TZ> <OPTION 
 
-            //--></SCRIPT>
+                  value="-1200 安尼威土克、瓜甲兰" selected>国际换日线<OPTION 
 
-            </SELECT>年<SELECT style="FONT-SIZE: 9pt" onchange=changeCld() 
+                  value="-1100 中途岛、萨摩亚群岛">萨摩亚<OPTION value="-1000 夏威夷">夏威夷<OPTION 
 
-            name=SM> 
+                  value=-0900*阿拉斯加>阿拉斯加<OPTION value=-0800*太平洋时间(美加)、提亚纳>太平洋<OPTION 
 
-              <SCRIPT language=JavaScript><!--
+                  value=-0700*亚历桑那>美国山区<OPTION value=-0700*山区时间(美加)>美加山区<OPTION 
 
-            for(i=1;i<13;i++) document.write('<option>'+i)
+                  value=-0600*萨克其万(加拿大)>加拿大中部<OPTION value=-0600*墨西哥市、塔克西卡帕>墨西哥<OPTION 
 
-            //--></SCRIPT>
+                  value=-0600*中部时间(美加)>美加中部<OPTION value=-0500*波哥大、里玛>南美洲太平洋<OPTION 
 
-            </SELECT>月 </FONT><FONT id=GZ face=标楷体 color=yellow 
+                  value=-0500*东部时间(美加)>美加东部<OPTION value=-0500*印第安纳(东部)>美东<OPTION 
 
-            size=3></FONT><BR></TD></TR>
+                  value=-0400*加拉卡斯、拉帕兹>南美洲西部<OPTION value="-0400*大西洋时间 加拿大)">大西洋<OPTION 
 
-        <TR align=middle bgColor=#e0e0e0>
+                  value="-0330 新岛(加拿大东岸)">纽芬兰<OPTION value="-0300 波西尼亚">东南美洲<OPTION 
 
-          <TD width=60><FONT color=red>日</FONT></TD>
+                  value="-0300 布鲁诺斯爱丽斯、乔治城">南美洲东部<OPTION value=-0200*大西洋中部>大西洋中部<OPTION 
 
-          <TD width=60>一</TD>
+                  value=-0100*亚速尔群岛、维德角群岛>亚速尔<OPTION 
 
-          <TD width=60>二</TD>
+                  value="+0000 格林威治时间、都柏林、爱丁堡、伦敦">英国夏令<OPTION 
 
-          <TD width=60>三</TD>
+                  value="+0000 莫洛维亚(赖比瑞亚)、卡萨布兰卡">格林威治标准<OPTION 
 
-          <TD width=60>四</TD>
+                  value="+0100 巴黎、马德里">罗马<OPTION value="+0100 布拉格, 华沙, 布达佩斯">中欧<OPTION 
 
-          <TD width=60>五</TD>
+                  value="+0100 柏林、斯德哥尔摩、罗马、伯恩、布鲁赛尔、维也纳">西欧<OPTION 
 
-          <TD width=60><FONT color=green>六</FONT></TD></TR>
+                  value="+0200 以色列">以色列<OPTION value=+0200*东欧>东欧<OPTION 
 
-        <SCRIPT language=JavaScript><!--
+                  value=+0200*开罗>埃及<OPTION value=+0200*雅典、赫尔辛基、伊斯坦堡>GFT<OPTION 
 
-            var gNum
+                  value=+0200*赫拉雷、皮托里>南非<OPTION 
+
+                  value=+0300*巴格达、科威特、奈洛比(肯亚)、里雅德(沙乌地)>沙乌地阿拉伯<OPTION 
+
+                  value=+0300*莫斯科、圣彼得堡、贺占、窝瓦格瑞德>俄罗斯<OPTION value=+0330*德黑兰>伊朗<OPTION 
+
+                  value=+0400*阿布达比(东阿拉伯)、莫斯凯、塔布理斯(乔治亚共和)>阿拉伯<OPTION 
+
+                  value=+0430*喀布尔>阿富汗<OPTION value="+0500 伊斯兰马巴德、克洛奇、伊卡特林堡、塔须肯">西亚<OPTION 
+
+                  value="+0530 孟买、加尔各答、马垂斯、新德里、可伦坡">印度<OPTION 
+
+                  value="+0600 阿马提、达卡">中亚<OPTION value="+0700 曼谷、亚加达、胡志明市">曼谷<OPTION 
+
+                  value="+0800 北京、重庆、黑龙江">中国<OPTION value="+0800 台湾、香港、新加坡">台北<OPTION 
+
+                  value="+0900 东京、大阪、扎幌、汉城、亚库兹(东西伯利亚)">东京<OPTION 
+
+                  value="+0930 达尔文">澳洲中部<OPTION value="+1000 布里斯本、墨尔本、席德尼">席德尼<OPTION 
+
+                  value="+1000 霍巴特">塔斯梅尼亚<OPTION value="+1000 关岛、莫斯比港、海  威">西太平洋<OPTION 
+
+                  value=+1100*马哥大、所罗门群岛、新卡伦多尼亚>太平洋中部<OPTION 
+
+                  value="+1200 威灵顿、奥克兰">纽西兰<OPTION 
+
+                  value="+1200 斐济、肯加塔、马歇尔群岛">斐济</OPTION></SELECT>时间 </FONT><BR><FONT 
+
+                id=Clock2 face=Arial color=#000080 size=4 align="center"></FONT><BR><FONT 
+
+                style="FONT-SIZE: 120pt; COLOR: green; FONT-FAMILY:Webdings" id="worldmap">&ucirc;</FONT><BR><FONT 
+
+                id=CITY 
+
+                style="FONT-SIZE: 9pt; WIDTH: 150px; COLOR: blue; FONT-FAMILY: '新细明体'"></FONT></P>
+
+          </TD>
+
+          <TD align=middle>
+
+            <DIV style="Z-INDEX: -1; POSITION: absolute; TOP: 30px"><FONT id=YMBG 
+
+                style="FONT-SIZE: 90pt; COLOR: #f0f0f0; FONT-FAMILY: 'Arial Black'">&nbsp;0000<BR>&nbsp;JUN</FONT> 
+
+            </DIV>
+
+            <TABLE border=0>
+
+              <TBODY>
+
+                <TR>
+
+                  <TD bgColor=#000080 colSpan=7><FONT style="FONT-SIZE: 9pt" 
+
+                      color=#ffffff size=2>公历<SELECT style="FONT-SIZE: 9pt" 
+
+                        onchange=changeCld() name=SY> 
+
+                        <SCRIPT language=JavaScript><!--
+
+                          for(i=1900;i<2050;i++) document.write('<option>'+i)
+
+                        //--></SCRIPT>
+
+                      </SELECT>年<SELECT style="FONT-SIZE: 9pt" onchange=changeCld() 
+
+                      name=SM> 
+
+                      <SCRIPT language=JavaScript><!--
+
+                        for(i=1;i<13;i++) document.write('<option>'+i)
+
+                      //--></SCRIPT>
+
+                  </SELECT>月 </FONT><FONT id=GZ face=标楷体 color=yellow 
+
+                  size=3></FONT><BR></TD></TR>
+
+            <TR align=middle bgColor=#e0e0e0>
+
+              <TD width=60><FONT color=red>日</FONT></TD>
+
+              <TD width=60>一</TD>
+
+              <TD width=60>二</TD>
+
+              <TD width=60>三</TD>
+
+              <TD width=60>四</TD>
+
+              <TD width=60>五</TD>
+
+              <TD width=60><FONT color=green>六</FONT></TD></TR>
+
+            <SCRIPT language=JavaScript><!--
+
+              var gNum
 
             for(i=0;i<6;i++) {
 
-               document.write('<tr align=center>')
+              document.write('<tr align=center>')
 
                for(j=0;j<7;j++) {
 
-                  gNum = i*7+j
+                 gNum = i*7+j
 
                   document.write('<td id="GD' + gNum +'" onMouseOver="mOvr(' + gNum +')" onMouseOut="mOut()"><font id="SD' + gNum +'" size=5 face="Arial Black"')
 
                   if(j == 0) document.write(' color=red')
 
-                  if(j == 6)
+                    if(j == 6)
 
-                     if(i%2==1) document.write(' color=red')
+                      if(i%2==1) document.write(' color=red')
 
-                        else document.write(' color=green')
+                      else document.write(' color=green')
 
                   document.write(' TITLE=""> </font><br><font id="LD' + gNum + '" size=2 style="font-size:9pt"> </font></td>')
 
@@ -1755,41 +1732,41 @@ document.bgColor=hval;
 
             //--></SCRIPT>
 
-        </TBODY></TABLE></TD>
+    </TBODY></TABLE></TD>
 
     <TD vAlign=top align=middle width=40><BR><BR><BR><BR><BUTTON 
 
-      style="FONT-SIZE: 9pt" onClick="pushBtm('YU')">年↑</BUTTON><BR><BUTTON 
+        style="FONT-SIZE: 9pt" onClick="pushBtm('YU')">年↑</BUTTON><BR><BUTTON 
 
-      style="FONT-SIZE: 9pt" onClick="pushBtm('YD')">年↓</BUTTON> 
+        style="FONT-SIZE: 9pt" onClick="pushBtm('YD')">年↓</BUTTON> 
 
       <P><BUTTON style="FONT-SIZE: 9pt" 
 
-      onclick="pushBtm('MU')">月↑</BUTTON><BR><BUTTON style="FONT-SIZE: 9pt" 
+          onclick="pushBtm('MU')">月↑</BUTTON><BR><BUTTON style="FONT-SIZE: 9pt" 
 
-      onclick="pushBtm('MD')">月↓</BUTTON> 
+          onclick="pushBtm('MD')">月↓</BUTTON> 
 
-      <P><BUTTON style="FONT-SIZE: 9pt" onClick="pushBtm('')">今日</BUTTON> 
+        <P><BUTTON style="FONT-SIZE: 9pt" onClick="pushBtm('')">今日</BUTTON> 
 
   </P></TD></TR></TBODY></TABLE></FORM>
 
-<P></P>
+  <P></P>
 
-<HR width="90%" color=#cccccc noShade SIZE=1>
+  <HR width="90%" color=#cccccc noShade SIZE=1>
 
-<FONT style="FONT-SIZE: 9pt" face=ARIAL size=2>阳历中<FONT 
+  <FONT style="FONT-SIZE: 9pt" face=ARIAL size=2>阳历中<FONT 
 
-color=red>红色</FONT>/<FONT color=green>绿色</FONT><FONT color=black>表示节假日，农历中<FONT 
+      color=red>红色</FONT>/<FONT color=green>绿色</FONT><FONT color=black>表示节假日，农历中<FONT 
 
-color=green>绿色</FONT>表示为24节气日，<FONT color=red>红色</FONT>表示为传统节日，<FONT 
+        color=green>绿色</FONT>表示为24节气日，<FONT color=red>红色</FONT>表示为传统节日，<FONT 
 
-color=blue>蓝色</FONT>则表示为公众节假日<BR>
+        color=blue>蓝色</FONT>则表示为公众节假日<BR>
 
-<script type="text/javascript">
+      <script type="text/javascript">
 
-<!--
+        <!--
 
-	initial()
+  initial()
 
 //-->
 
@@ -1801,16 +1778,17 @@ color=blue>蓝色</FONT>则表示为公众节假日<BR>
 
 <table align="center" border="0" cellpadding="3" cellspacing="0" width="700">
 
-<tr>
+  <tr>
 
-<td align="center"><b><font color="#008000"></font></b></td>
-
-	
+    <td align="center"><b><font color="#008000"></font></b></td>
 
 
 
-</tr>
+
+
+  </tr>
 
 </table>
 
-</BODY></HTML>
+<% end %>
+

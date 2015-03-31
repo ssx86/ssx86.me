@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <style type='text/css'>
+body {
+background-color: #EEEEEE;
+padding-top: 60px;
+padding-bottom: 40px;
+}
+</style>
     <title>SS-X小网站</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'bootstrap/js/bootstrap.min.js', 'data-turbolinks-track' => true %>
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet"/>
     <%= csrf_meta_tags %>
-    <style type='text/css'>
-      body {
-        background-color: #EEEEEE;
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-    </style>
 
+    <%= yield :head %>
   </head>
 
   <body>
@@ -75,7 +76,7 @@
 
 
     <div class="container">
-      <%= yield %>
+      <%= yield :body %>
     </div>
 
   </body>
