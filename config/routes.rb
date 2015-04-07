@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   get 'tools' => 'tools#index'
   get 'tools/ascii' => 'tools#ascii'
   get 'tools/calendar' => 'tools#calendar'
-  get 'tools/htmleditor' => 'tools#htmleditor'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
